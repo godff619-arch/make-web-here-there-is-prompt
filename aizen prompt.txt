@@ -1,0 +1,4713 @@
+# UNIVERSAL AI STUDIO - MASTER PROMPT V1
+# FOUNDATION, ARCHITECTURE & CORE REQUIREMENTS
+
+==================================================
+IMPORTANT INSTRUCTIONS
+==================================================
+
+Read this entire document completely before writing any code.
+
+This document defines the architecture, coding standards, UI/UX philosophy, backend structure, permissions, feature system, and overall foundation of the platform.
+
+DO NOT skip any requirement.
+
+DO NOT simplify any feature.
+
+DO NOT replace requested functionality with placeholders.
+
+DO NOT generate CRUD templates.
+
+DO NOT generate unfinished pages.
+
+DO NOT generate fake data.
+
+DO NOT generate mock APIs.
+
+Every page, button, switch, dropdown, popup, modal, setting and feature must be connected to the backend.
+
+Every configuration must be stored inside the database.
+
+No hardcoded Providers.
+
+No hardcoded Models.
+
+No hardcoded API Keys.
+
+No hardcoded Base URLs.
+
+No hardcoded Feature Flags.
+
+Everything must be configurable from the Admin Panel.
+
+==================================================
+PROJECT GOAL
+==================================================
+
+Build a complete commercial AI SaaS platform inspired by
+
+ChatGPT
+
+Claude AI
+
+Cursor
+
+Perplexity
+
+Gemini
+
+OpenRouter
+
+LibreChat
+
+OpenWebUI
+
+Vercel
+
+Linear
+
+Supabase
+
+The final product should feel like a premium commercial AI platform rather than an admin dashboard.
+
+==================================================
+TECH STACK
+==================================================
+
+Backend
+
+Python
+
+FastAPI
+
+SQLAlchemy
+
+Alembic
+
+JWT Authentication
+
+Redis
+
+WebSockets
+
+Background Tasks
+
+Frontend
+
+React
+
+TypeScript
+
+Vite
+
+TailwindCSS
+
+shadcn/ui
+
+Radix UI
+
+Lucide React
+
+Framer Motion
+
+TanStack Query
+
+React Hook Form
+
+Zod
+
+Monaco Editor
+
+Database
+
+PostgreSQL
+
+SQLite for development
+
+==================================================
+APPLICATION STRUCTURE
+==================================================
+
+Create a modular architecture.
+
+Authentication
+
+Homepage
+
+Dashboard
+
+Chat
+
+Coding Studio
+
+Image Studio
+
+Video Studio
+
+Voice Studio
+
+Knowledge Base
+
+Files
+
+Documents
+
+Prompt Library
+
+AI Connections
+
+Membership
+
+Billing
+
+Notifications
+
+Settings
+
+Admin
+
+Everything should be independent modules.
+
+==================================================
+DESIGN SYSTEM
+==================================================
+
+Desktop First.
+
+Mobile Responsive.
+
+Premium.
+
+Professional.
+
+Minimal.
+
+Modern.
+
+Smooth.
+
+No white flash.
+
+Persistent Layouts.
+
+Skeleton Loading.
+
+Animated transitions.
+
+No generic admin templates.
+
+==================================================
+UI STYLE
+==================================================
+
+Inspired by
+
+ChatGPT
+
+Claude
+
+Cursor
+
+Vercel
+
+Linear
+
+Apple
+
+Use
+
+Rounded cards
+
+Soft shadows
+
+Glass effects where appropriate
+
+Consistent spacing
+
+Professional typography
+
+Lucide React icons
+
+Framer Motion animations
+
+==================================================
+THEME SYSTEM
+==================================================
+
+Dark
+
+Light
+
+System
+
+Custom Accent Colors
+
+Compact Mode
+
+Comfortable Mode
+
+Everything configurable.
+
+==================================================
+RESPONSIVE DESIGN
+==================================================
+
+Desktop
+
+Laptop
+
+Tablet
+
+Mobile
+
+Collapsible sidebar.
+
+Adaptive layouts.
+
+Touch optimized.
+
+==================================================
+AUTHENTICATION
+==================================================
+
+Email Password
+
+OTP Verification
+
+Google Login
+
+GitHub Login
+
+Microsoft Login
+
+Passkeys (optional)
+
+Forgot Password
+
+Reset Password
+
+Email Verification
+
+Session Management
+
+==================================================
+USER ROLES
+==================================================
+
+Guest
+
+Member
+
+Moderator
+
+Developer
+
+Admin
+
+Owner
+
+Permissions stored in database.
+
+==================================================
+MEMBERSHIP
+==================================================
+
+Free
+
+Starter
+
+Pro
+
+Business
+
+Enterprise
+
+Unlimited
+
+Administrator can create unlimited custom plans.
+
+==================================================
+FEATURE SYSTEM
+==================================================
+
+Every feature must support
+
+Enable
+
+Disable
+
+Hide
+
+Membership Restriction
+
+Role Restriction
+
+Workspace Restriction
+
+Maintenance Mode
+
+Beta
+
+Experimental
+
+Everything configurable from Admin Panel.
+
+==================================================
+HOMEPAGE
+==================================================
+
+DO NOT create the final Homepage.
+
+Only create
+
+Routing
+
+Backend
+
+Component structure
+
+Homepage Builder
+
+Placeholder Sections
+
+Leave enough space because a dedicated Homepage Prompt will be provided later.
+
+DO NOT redesign the homepage until that prompt is given.
+
+==================================================
+CHAT
+==================================================
+
+Do not build the final Chat UI yet.
+
+Prepare
+
+Routing
+
+Backend
+
+Database
+
+API
+
+Streaming
+
+Messages
+
+Conversation System
+
+The detailed Chat UI Prompt will be provided later.
+
+==================================================
+ADMIN PANEL
+==================================================
+
+Build a professional Admin Panel.
+
+No CRUD template.
+
+Everything configurable.
+
+Database driven.
+
+==================================================
+USER PANEL
+==================================================
+
+Professional dashboard.
+
+No placeholder cards.
+
+No fake widgets.
+
+==================================================
+DATABASE
+==================================================
+
+Everything stored in database.
+
+Settings
+
+Providers
+
+Models
+
+Users
+
+Chats
+
+Memberships
+
+Permissions
+
+Branding
+
+Feature Flags
+
+AI Modes
+
+Notifications
+
+==================================================
+SECURITY
+==================================================
+
+Encrypt API Keys.
+
+Role Based Access.
+
+Permission Checks.
+
+Audit Logs.
+
+JWT.
+
+Rate Limiting.
+
+CSRF Protection.
+
+Validation.
+
+==================================================
+PERFORMANCE
+==================================================
+
+Lazy Loading
+
+Virtualization
+
+Caching
+
+Optimized Queries
+
+Code Splitting
+
+Background Jobs
+
+==================================================
+IMPORTANT
+==================================================
+
+AFTER THIS DOCUMENT ENDS,
+
+another document named
+
+MASTER PROMPT V2
+
+will continue.
+
+Do NOT assume anything is finished.
+
+Do NOT finalize
+
+Homepage
+
+Chat
+
+Admin
+
+User Dashboard
+
+AI Connections
+
+Studios
+
+Branding
+
+These will be expanded in later prompt versions.
+
+==================================================
+CUSTOM PROMPT PLACEHOLDER
+==================================================
+
+⚠ IMPORTANT
+
+At the END of this prompt another custom project prompt will be appended by the project owner.
+
+That custom prompt contains additional project-specific requirements.
+
+Treat that appended prompt as PART OF THIS MASTER PROMPT.
+
+Merge all requirements together.
+
+Never ignore the appended prompt.
+
+If there is overlap, intelligently combine both requirements without removing existing functionality.
+
+The appended custom prompt has equal priority and should extend this specification rather than replace it.
+
+==================== END OF V1 ====================
+# ==================================================
+# UNIVERSAL AI STUDIO - MASTER PROMPT V2
+# AUTHENTICATION • HOMEPAGE • USER EXPERIENCE • CHAT FOUNDATION
+# ==================================================
+
+==================================================
+IMPORTANT
+==================================================
+
+Continue from V1.
+
+Do NOT rewrite previous code.
+
+Do NOT break existing architecture.
+
+Extend the project.
+
+Everything must integrate with V1.
+
+==================================================
+AUTHENTICATION SYSTEM
+==================================================
+
+Create a production-ready authentication system.
+
+Support
+
+• Email Login
+• Email Signup
+• OTP Verification
+• Email Verification
+• Forgot Password
+• Reset Password
+• Change Password
+• Google Login
+• GitHub Login
+• Microsoft Login
+• Session Management
+• Remember Me
+• Device Management
+
+Every login session must be stored.
+
+Show active sessions.
+
+Allow logout from one device.
+
+Allow logout from all devices.
+
+==================================================
+ONBOARDING
+==================================================
+
+First login experience.
+
+Welcome wizard.
+
+Ask
+
+Name
+
+Profile Picture
+
+Timezone
+
+Language
+
+Theme
+
+Preferred AI Provider
+
+Preferred Model
+
+Workspace Name
+
+Everything editable later.
+
+==================================================
+HOMEPAGE
+==================================================
+
+Do NOT create the final homepage design.
+
+Only create the homepage framework.
+
+Homepage Builder already exists from V1.
+
+Prepare sections.
+
+Hero
+
+Features
+
+AI Studios
+
+Pricing
+
+Testimonials
+
+FAQ
+
+Blog
+
+News
+
+Footer
+
+Announcement Bar
+
+Everything must be dynamic.
+
+Every section configurable from Admin Panel.
+
+==================================================
+HOMEPAGE BUILDER
+==================================================
+
+Administrator can
+
+Enable
+
+Disable
+
+Hide
+
+Reorder
+
+Duplicate
+
+Delete
+
+Schedule
+
+Import
+
+Export
+
+Preview
+
+Publish
+
+Draft
+
+Each section supports
+
+Title
+
+Subtitle
+
+Description
+
+Buttons
+
+Images
+
+Videos
+
+Background
+
+Animation
+
+Visibility
+
+Membership restriction
+
+==================================================
+USER EXPERIENCE
+==================================================
+
+Modern SaaS experience.
+
+No page reload.
+
+SPA routing.
+
+Smooth animations.
+
+Skeleton loading.
+
+Persistent sidebar.
+
+Persistent header.
+
+Smooth transitions.
+
+Glass UI where appropriate.
+
+==================================================
+CHAT FOUNDATION
+==================================================
+
+Prepare Chat Engine.
+
+Conversation database.
+
+Message database.
+
+Streaming support.
+
+Markdown.
+
+Code blocks.
+
+Copy button.
+
+Edit message.
+
+Delete message.
+
+Regenerate.
+
+Continue generation.
+
+Conversation rename.
+
+Conversation archive.
+
+Conversation search.
+
+Pinned chats.
+
+Folders.
+
+Favorites.
+
+==================================================
+CHAT ATTACHMENTS
+==================================================
+
+Prepare backend support.
+
+Images
+
+PDF
+
+Word
+
+Excel
+
+PowerPoint
+
+ZIP
+
+Text
+
+Markdown
+
+CSV
+
+Audio
+
+Video
+
+Future-ready architecture.
+
+==================================================
+CHAT HEADER
+==================================================
+
+Sticky header.
+
+Prepare placeholders for
+
+Provider Switcher
+
+Model Switcher
+
+AI Mode
+
+Workspace
+
+Search
+
+Share
+
+Export
+
+Settings
+
+History
+
+Actual UI will be improved in later versions.
+
+==================================================
+USER DASHBOARD
+==================================================
+
+Professional dashboard.
+
+No fake analytics.
+
+Real backend.
+
+Recent Chats.
+
+Recent Files.
+
+Recent Projects.
+
+Recent Images.
+
+Notifications.
+
+Usage Summary.
+
+Membership Status.
+
+Quick Actions.
+
+==================================================
+NOTIFICATIONS
+==================================================
+
+In-App Notifications.
+
+Success.
+
+Warning.
+
+Error.
+
+Information.
+
+Realtime updates.
+
+==================================================
+PROFILE
+==================================================
+
+Avatar
+
+Banner
+
+Username
+
+Display Name
+
+Bio
+
+Social Links
+
+Language
+
+Timezone
+
+Theme
+
+Security
+
+API Tokens
+
+Sessions
+
+==================================================
+SETTINGS
+==================================================
+
+General
+
+Appearance
+
+Notifications
+
+Privacy
+
+Security
+
+Language
+
+Accessibility
+
+Keyboard Shortcuts
+
+Labs
+
+==================================================
+SEARCH
+==================================================
+
+Global Search.
+
+Chats.
+
+Files.
+
+Projects.
+
+Documents.
+
+Knowledge Base.
+
+Providers.
+
+Models.
+
+==================================================
+FILE MANAGER
+==================================================
+
+Prepare architecture.
+
+Folders.
+
+Upload.
+
+Download.
+
+Preview.
+
+Delete.
+
+Restore.
+
+Recent Files.
+
+Shared Files.
+
+==================================================
+FUTURE STUDIOS
+==================================================
+
+Prepare navigation only.
+
+Coding Studio
+
+Image Studio
+
+Video Studio
+
+Voice Studio
+
+Document Studio
+
+Prompt Studio
+
+Knowledge Base
+
+Actual implementation will be added later.
+
+==================================================
+DESIGN RULES
+==================================================
+
+Inspired by
+
+ChatGPT
+
+Claude
+
+Cursor
+
+Perplexity
+
+Linear
+
+Vercel
+
+Apple
+
+Premium spacing.
+
+Rounded corners.
+
+Modern typography.
+
+No basic admin templates.
+
+==================================================
+PERFORMANCE
+==================================================
+
+Streaming.
+
+Lazy Loading.
+
+Infinite Scroll.
+
+Virtualized Lists.
+
+Caching.
+
+Optimized rendering.
+
+==================================================
+END OF V2
+==================================================
+
+The next document (MASTER PROMPT V3) will implement
+
+• AI Connections
+• Base URL Manager
+• API Key Vault
+• Provider Manager
+• Model Manager
+• AI Modes
+• Global / Personal / Hybrid System
+• Auto Model Discovery
+• Branding
+• White Label
+• Enterprise AI Infrastructure
+
+Do NOT implement those until V3 is provided.
+
+==================================================
+CUSTOM PROJECT PROMPT
+==================================================
+
+After this V2 document, the project owner may append additional custom requirements.
+
+Merge those requirements with V1 and V2.
+
+Never overwrite previous functionality.
+
+Always extend the system while maintaining compatibility with every previous version.
+# ==================================================
+# UNIVERSAL AI STUDIO - MASTER PROMPT V3
+# AI INFRASTRUCTURE • PROVIDERS • MODELS • API KEYS
+# ==================================================
+
+IMPORTANT
+
+Continue from V1 and V2.
+
+Do NOT rewrite existing code.
+
+Extend the project only.
+
+Everything must remain compatible with previous versions.
+
+==================================================
+GOAL
+==================================================
+
+Build an Enterprise AI Infrastructure capable of supporting unlimited AI providers, unlimited models, unlimited Base URLs and unlimited API Keys.
+
+The system must work similar to ChatGPT, OpenRouter, LibreChat and OpenWebUI while remaining completely database-driven.
+
+No hardcoded Providers.
+
+No hardcoded Models.
+
+No hardcoded API Keys.
+
+No hardcoded Base URLs.
+
+Everything must be configurable.
+
+==================================================
+AI CONNECTION MODES
+==================================================
+
+Support three global operating modes.
+
+GLOBAL ONLY
+
+Only administrator configured Providers, Base URLs, Models and API Keys are available.
+
+Users cannot add their own.
+
+--------------------------------------------------
+
+PERSONAL ONLY
+
+Every user manages
+
+Base URLs
+
+Providers
+
+Models
+
+API Keys
+
+Nothing is shared globally.
+
+--------------------------------------------------
+
+HYBRID
+
+Users may use
+
+Global Providers
+
+Global Models
+
+Global API Keys (if allowed)
+
+AND
+
+their own Providers
+
+their own Models
+
+their own Base URLs
+
+their own API Keys
+
+Administrator controls permissions.
+
+==================================================
+AI PROVIDER MANAGER
+==================================================
+
+Administrator can
+
+Create Provider
+
+Edit Provider
+
+Delete Provider
+
+Duplicate Provider
+
+Enable
+
+Disable
+
+Maintenance Mode
+
+Priority
+
+Sort Order
+
+Health Status
+
+Visibility
+
+Membership Restriction
+
+Role Restriction
+
+Workspace Restriction
+
+Provider Logo
+
+Dark Logo
+
+Light Logo
+
+Description
+
+Documentation URL
+
+Website
+
+Support URL
+
+Category
+
+Tags
+
+Color
+
+Provider Notes
+
+==================================================
+SUPPORTED PROVIDERS
+==================================================
+
+Support every OpenAI Compatible API.
+
+Also support
+
+OpenAI
+
+Anthropic
+
+Google Gemini
+
+OpenRouter
+
+Groq
+
+Mistral
+
+xAI
+
+DeepSeek
+
+Cloudflare AI
+
+Azure OpenAI
+
+Ollama
+
+LM Studio
+
+vLLM
+
+LocalAI
+
+Custom OpenAI Compatible APIs
+
+Future providers.
+
+==================================================
+MODEL MANAGER
+==================================================
+
+Administrator can
+
+Add Model
+
+Import Model
+
+Auto Discover
+
+Enable
+
+Disable
+
+Archive
+
+Delete
+
+Duplicate
+
+Rename
+
+Alias
+
+Context Window
+
+Max Tokens
+
+Streaming
+
+Vision
+
+Function Calling
+
+JSON Mode
+
+Reasoning
+
+Image Generation
+
+Audio
+
+Video
+
+Code
+
+Search
+
+Category
+
+Tags
+
+Logo
+
+Description
+
+Release Version
+
+Provider Mapping
+
+Pricing Information
+
+==================================================
+AUTO MODEL DISCOVERY
+==================================================
+
+Support automatic model detection.
+
+When a Base URL and API Key are provided
+
+Discover available models
+
+Import selected models
+
+Sync updates
+
+Refresh manually
+
+Schedule automatic sync
+
+Show unsupported models
+
+==================================================
+BASE URL MANAGER
+==================================================
+
+Administrator can
+
+Add Base URL
+
+Edit
+
+Delete
+
+Duplicate
+
+Enable
+
+Disable
+
+Health Check
+
+Priority
+
+Load Balance
+
+Fallback
+
+Timeout
+
+Retry
+
+Rate Limit
+
+Authentication Type
+
+Headers
+
+Proxy
+
+SSL
+
+Custom Parameters
+
+Notes
+
+==================================================
+API KEY VAULT
+==================================================
+
+Store API Keys securely.
+
+Encrypt every key.
+
+Never expose secrets.
+
+Support
+
+Global Keys
+
+Workspace Keys
+
+Membership Keys
+
+User Keys
+
+Rotation
+
+Expiration
+
+Usage Statistics
+
+Health Status
+
+Test Connection
+
+==================================================
+USER AI CONNECTIONS
+==================================================
+
+If allowed by Administrator
+
+Users can
+
+Create Provider
+
+Create Base URL
+
+Create Models
+
+Import Models
+
+Add API Keys
+
+Test Connection
+
+Delete Connections
+
+Export Configuration
+
+Import Configuration
+
+==================================================
+AI MODES
+==================================================
+
+Administrator can create unlimited AI Modes.
+
+Examples
+
+Chat
+
+Reasoning
+
+Coding
+
+Vision
+
+Research
+
+Creative Writing
+
+Translation
+
+Summarization
+
+Agent
+
+Image
+
+Video
+
+Voice
+
+Custom
+
+Each mode defines
+
+Preferred Provider
+
+Preferred Model
+
+Temperature
+
+Top P
+
+Max Tokens
+
+Streaming
+
+Reasoning Level
+
+==================================================
+CHAT HEADER
+==================================================
+
+Prepare dynamic selectors.
+
+Provider Selector
+
+Model Selector
+
+AI Mode Selector
+
+Workspace Selector
+
+Conversation Settings
+
+Everything updates instantly.
+
+No page refresh.
+
+==================================================
+AUTO FALLBACK
+==================================================
+
+If a model
+
+Fails
+
+Times out
+
+Returns errors
+
+Hits quota
+
+Becomes unavailable
+
+Automatically switch to the next compatible model according to administrator rules.
+
+Administrator defines fallback order.
+
+==================================================
+LOAD BALANCER
+==================================================
+
+Support
+
+Round Robin
+
+Priority
+
+Least Used
+
+Fastest Response
+
+Random
+
+Weighted Distribution
+
+==================================================
+WORKSPACES
+==================================================
+
+Each workspace can have
+
+Own Providers
+
+Own Models
+
+Own Base URLs
+
+Own API Keys
+
+Own AI Modes
+
+Own Branding
+
+==================================================
+MEMBERSHIP RESTRICTIONS
+==================================================
+
+Administrator decides
+
+Who can
+
+Add Providers
+
+Add Models
+
+Add Base URLs
+
+Add API Keys
+
+Import Models
+
+Use Premium Models
+
+Create AI Modes
+
+==================================================
+AI HEALTH CENTER
+==================================================
+
+Dashboard showing
+
+Provider Status
+
+Model Status
+
+Latency
+
+Errors
+
+Quota
+
+Rate Limits
+
+Token Usage
+
+Response Time
+
+==================================================
+USAGE ANALYTICS
+==================================================
+
+Track
+
+Requests
+
+Responses
+
+Prompt Tokens
+
+Completion Tokens
+
+Cost
+
+Latency
+
+Failures
+
+Provider Usage
+
+Model Usage
+
+Daily
+
+Weekly
+
+Monthly
+
+==================================================
+SECURITY
+==================================================
+
+Encrypt API Keys.
+
+Audit every change.
+
+Permission checks everywhere.
+
+Role-based access.
+
+Never expose secrets to frontend.
+
+==================================================
+END OF V3
+==================================================
+
+MASTER PROMPT V4 will continue with
+
+• Admin Dashboard
+• Feature Control Center
+• Branding Manager
+• White Label
+• Theme Builder
+• Homepage Builder Advanced
+• User Management
+• Membership Manager
+• Analytics
+• Logs
+• Monitoring
+• Backups
+
+Do not implement V4 until it is provided.
+
+After this document, merge any additional custom project prompt supplied by the project owner without removing any existing functionality.
+# ==================================================
+# UNIVERSAL AI STUDIO - MASTER PROMPT V4
+# ADMIN PANEL • BRANDING • MEMBERSHIP • ANALYTICS
+# ==================================================
+
+IMPORTANT
+
+Continue from V1, V2 and V3.
+
+Never rewrite previous functionality.
+
+Only extend the platform.
+
+Everything must remain fully compatible.
+
+==================================================
+ADMIN PANEL
+==================================================
+
+Build a world-class Admin Panel.
+
+The Admin Panel must NOT look like a CRUD dashboard.
+
+It should feel similar to
+
+Vercel
+
+Linear
+
+Supabase
+
+Cloudflare Dashboard
+
+Stripe Dashboard
+
+OpenAI Platform
+
+Modern SaaS Admin Panels.
+
+==================================================
+ADMIN HOME
+==================================================
+
+Dashboard includes
+
+System Status
+
+Active Users
+
+Online Users
+
+AI Requests
+
+Chats Today
+
+Token Usage
+
+Revenue
+
+Membership Statistics
+
+Storage Usage
+
+Database Status
+
+CPU
+
+RAM
+
+Queue Status
+
+Email Status
+
+API Status
+
+Provider Status
+
+Model Status
+
+Realtime Activity Feed
+
+Quick Actions
+
+Recent Logs
+
+Announcements
+
+==================================================
+USER MANAGEMENT
+==================================================
+
+Administrator can
+
+Create Users
+
+Edit Users
+
+Delete Users
+
+Suspend Users
+
+Ban Users
+
+Unban Users
+
+Reset Password
+
+Verify Email
+
+Change Membership
+
+Change Role
+
+Login As User
+
+Reset API Keys
+
+Transfer Workspace
+
+Export User Data
+
+Delete User Data
+
+View Login History
+
+View Devices
+
+View Sessions
+
+View AI Usage
+
+View Storage Usage
+
+==================================================
+ROLE MANAGEMENT
+==================================================
+
+Create Unlimited Roles
+
+Permissions
+
+Page Access
+
+Feature Access
+
+API Access
+
+Workspace Access
+
+Studio Access
+
+Provider Access
+
+Model Access
+
+==================================================
+MEMBERSHIP MANAGER
+==================================================
+
+Unlimited Membership Plans
+
+Monthly
+
+Yearly
+
+Lifetime
+
+Trial
+
+Custom Plans
+
+Administrator controls
+
+Features
+
+Limits
+
+Providers
+
+Models
+
+Storage
+
+Requests
+
+Tokens
+
+Workspaces
+
+Image Generation
+
+Video Generation
+
+Voice Features
+
+Knowledge Base
+
+Coding Studio
+
+Priority Queue
+
+Support Level
+
+==================================================
+FEATURE CONTROL CENTER
+==================================================
+
+Every feature supports
+
+Enable
+
+Disable
+
+Beta
+
+Experimental
+
+Maintenance
+
+Hidden
+
+Membership Restriction
+
+Role Restriction
+
+Workspace Restriction
+
+Country Restriction
+
+==================================================
+BRANDING MANAGER
+==================================================
+
+Administrator can customize
+
+Website Name
+
+Short Name
+
+Logo
+
+Dark Logo
+
+Light Logo
+
+Favicon
+
+Loading Screen
+
+Login Background
+
+Dashboard Background
+
+Icons
+
+Colors
+
+Fonts
+
+Animations
+
+Footer
+
+Copyright
+
+Meta Tags
+
+SEO
+
+==================================================
+WHITE LABEL
+==================================================
+
+Support complete White Label.
+
+Custom Domain
+
+Custom Logo
+
+Custom Branding
+
+Custom Colors
+
+Custom Fonts
+
+Custom Email Templates
+
+Custom Login Page
+
+Custom Homepage
+
+Custom Dashboard
+
+==================================================
+HOMEPAGE BUILDER
+==================================================
+
+Advanced Builder
+
+Drag & Drop
+
+Live Preview
+
+Reusable Sections
+
+Templates
+
+Animations
+
+Scheduling
+
+Publish
+
+Draft
+
+History
+
+Version Control
+
+==================================================
+EMAIL SYSTEM
+==================================================
+
+SMTP Manager
+
+Multiple SMTP Profiles
+
+Templates
+
+OTP Emails
+
+Verification Emails
+
+Password Reset
+
+Welcome Email
+
+Membership Emails
+
+Marketing Emails
+
+Test Email
+
+==================================================
+ANNOUNCEMENTS
+==================================================
+
+Administrator can create
+
+Global Banner
+
+Popup
+
+Notification
+
+Maintenance Notice
+
+Release Notes
+
+News
+
+Update Feed
+
+==================================================
+ANALYTICS
+==================================================
+
+Track
+
+Users
+
+Chats
+
+Providers
+
+Models
+
+Tokens
+
+Costs
+
+Revenue
+
+Errors
+
+Latency
+
+Storage
+
+Downloads
+
+Uploads
+
+API Usage
+
+==================================================
+LOG CENTER
+==================================================
+
+Authentication Logs
+
+Admin Logs
+
+AI Logs
+
+System Logs
+
+API Logs
+
+Error Logs
+
+Audit Logs
+
+Security Logs
+
+Search
+
+Filter
+
+Export
+
+==================================================
+SYSTEM HEALTH
+==================================================
+
+Realtime Monitoring
+
+CPU
+
+RAM
+
+Disk
+
+Database
+
+Redis
+
+Queue
+
+Workers
+
+Email
+
+Providers
+
+Models
+
+API Response
+
+==================================================
+BACKUP CENTER
+==================================================
+
+Automatic Backups
+
+Manual Backup
+
+Restore
+
+Download
+
+Database Backup
+
+Settings Backup
+
+Branding Backup
+
+Workspace Backup
+
+==================================================
+SECURITY CENTER
+==================================================
+
+Two Factor Authentication
+
+Session Control
+
+Device Management
+
+IP Whitelist
+
+IP Blacklist
+
+Rate Limits
+
+CAPTCHA
+
+Audit Logs
+
+Security Alerts
+
+==================================================
+FILE STORAGE
+==================================================
+
+Storage Manager
+
+Images
+
+Videos
+
+Documents
+
+Uploads
+
+Avatars
+
+Brand Assets
+
+Backups
+
+Logs
+
+==================================================
+PLUGIN SYSTEM
+==================================================
+
+Future-ready architecture.
+
+Administrator can
+
+Install Plugins
+
+Enable
+
+Disable
+
+Update
+
+Remove
+
+Marketplace Ready
+
+==================================================
+TRANSLATION SYSTEM
+==================================================
+
+Multi-language
+
+Language Packs
+
+Translation Manager
+
+RTL Support
+
+==================================================
+SETTINGS
+==================================================
+
+General
+
+Appearance
+
+Branding
+
+Authentication
+
+AI
+
+Providers
+
+Models
+
+Storage
+
+Email
+
+Security
+
+Payments
+
+Notifications
+
+Analytics
+
+Developer
+
+Experimental
+
+==================================================
+DEVELOPER TOOLS
+==================================================
+
+API Explorer
+
+Swagger
+
+Environment Variables
+
+Health Checks
+
+Cron Jobs
+
+Queue Monitor
+
+Webhook Tester
+
+Database Explorer
+
+==================================================
+DESIGN RULES
+==================================================
+
+Professional SaaS UI.
+
+Smooth animations.
+
+Persistent layouts.
+
+No white flash.
+
+Skeleton loading.
+
+Modern cards.
+
+Premium tables.
+
+Glass effects where appropriate.
+
+Dark / Light / System themes.
+
+==================================================
+END OF V4
+==================================================
+
+MASTER PROMPT V5 will implement
+
+• AI Coding Studio
+• Image Studio
+• Video Studio
+• Voice Studio
+• Document Studio
+• Prompt Studio
+• Knowledge Base
+• File Manager
+• Workspace Collaboration
+• AI Agents
+• Production Deployment
+• Enterprise Integrations
+
+Do not implement those until V5 is provided.
+
+After this document, merge any custom project prompt supplied by the project owner while preserving all functionality from V1, V2, V3 and V4.
+# ==================================================
+# UNIVERSAL AI STUDIO - MASTER PROMPT V5
+# AI STUDIOS • CODING • MEDIA • KNOWLEDGE • AGENTS
+# ==================================================
+
+IMPORTANT
+
+Continue from V1, V2, V3 and V4.
+
+Never remove existing functionality.
+
+Never rewrite previous modules.
+
+Only extend the platform.
+
+Everything must remain database driven.
+
+Everything must support permissions.
+
+Everything must support memberships.
+
+Everything must support workspaces.
+
+==================================================
+UNIVERSAL AI STUDIO
+==================================================
+
+Transform the platform into a complete AI Workspace.
+
+Users should be able to perform every AI task from one application.
+
+Inspired by
+
+ChatGPT
+
+Claude
+
+Cursor
+
+VS Code
+
+GitHub
+
+Perplexity
+
+OpenRouter
+
+OpenWebUI
+
+Canva
+
+Figma
+
+Google Docs
+
+Notion
+
+==================================================
+AI STUDIOS
+==================================================
+
+Create dedicated Studios.
+
+Chat Studio
+
+Coding Studio
+
+Image Studio
+
+Video Studio
+
+Voice Studio
+
+Document Studio
+
+Prompt Studio
+
+Knowledge Studio
+
+Research Studio
+
+Data Studio
+
+Agent Studio
+
+Future Studios
+
+Each Studio must have its own UI while sharing authentication, settings and AI infrastructure.
+
+==================================================
+CHAT STUDIO
+==================================================
+
+Professional ChatGPT-like experience.
+
+Conversation Tree
+
+Conversation Branching
+
+Pinned Chats
+
+Folders
+
+Favorites
+
+Tags
+
+Search
+
+Markdown
+
+Code Highlighting
+
+Tables
+
+Math
+
+Mermaid Diagrams
+
+Artifacts
+
+Streaming
+
+Continue Generation
+
+Regenerate
+
+Edit Message
+
+Delete Message
+
+Copy
+
+Share
+
+Export
+
+Voice Input
+
+Voice Output
+
+==================================================
+CODING STUDIO
+==================================================
+
+Must feel similar to
+
+Cursor
+
+VS Code
+
+GitHub Codespaces
+
+Features
+
+Project Explorer
+
+Folder Tree
+
+File Explorer
+
+Multiple Tabs
+
+Split Editor
+
+Monaco Editor
+
+Syntax Highlighting
+
+Git Integration
+
+Terminal
+
+Search
+
+Replace
+
+Outline
+
+Mini Map
+
+Breadcrumbs
+
+Command Palette
+
+Extensions Ready
+
+Theme Support
+
+Auto Save
+
+Workspace Settings
+
+Run Code
+
+Preview
+
+Diff Viewer
+
+Code Review
+
+Generate Files
+
+Generate Projects
+
+Generate Components
+
+Refactor
+
+Debug Assistance
+
+Explain Code
+
+Fix Bugs
+
+Optimize Code
+
+Generate README
+
+Generate Tests
+
+Generate Documentation
+
+ZIP Import
+
+ZIP Export
+
+Project Templates
+
+==================================================
+IMAGE STUDIO
+==================================================
+
+Generate Images
+
+Edit Images
+
+Upscale
+
+Remove Background
+
+Replace Background
+
+Inpainting
+
+Outpainting
+
+Image Variations
+
+Prompt History
+
+Gallery
+
+Folders
+
+Favorites
+
+Downloads
+
+Metadata
+
+==================================================
+VIDEO STUDIO
+==================================================
+
+Text to Video
+
+Image to Video
+
+Video Editing
+
+Frame Generation
+
+Prompt Library
+
+Video History
+
+Video Gallery
+
+Downloads
+
+==================================================
+VOICE STUDIO
+==================================================
+
+Speech to Text
+
+Text to Speech
+
+Voice Cloning Ready
+
+Voice Library
+
+Microphone Support
+
+Playback
+
+Downloads
+
+==================================================
+DOCUMENT STUDIO
+==================================================
+
+Create Documents
+
+Rich Text Editor
+
+Markdown
+
+Export
+
+Import
+
+PDF
+
+DOCX
+
+TXT
+
+HTML
+
+Templates
+
+AI Writing
+
+Grammar
+
+Translation
+
+Summarization
+
+==================================================
+PROMPT STUDIO
+==================================================
+
+Save Prompts
+
+Prompt Collections
+
+Prompt Variables
+
+Templates
+
+Import
+
+Export
+
+Sharing
+
+Favorites
+
+Search
+
+==================================================
+KNOWLEDGE STUDIO
+==================================================
+
+Knowledge Base
+
+Upload Files
+
+PDF
+
+Word
+
+PowerPoint
+
+Excel
+
+CSV
+
+Markdown
+
+Text
+
+Web URLs
+
+YouTube
+
+GitHub
+
+Notes
+
+Collections
+
+Folders
+
+Vector Search Ready
+
+==================================================
+RESEARCH STUDIO
+==================================================
+
+Multi-step Research
+
+Source Collection
+
+Citation Support
+
+Bookmarks
+
+Summaries
+
+Reports
+
+==================================================
+DATA STUDIO
+==================================================
+
+CSV Viewer
+
+Spreadsheet Preview
+
+Charts
+
+Tables
+
+Filtering
+
+Export
+
+Visualization
+
+==================================================
+AI AGENTS
+==================================================
+
+Future-ready Agent System.
+
+Administrator can create Agents.
+
+Users can create Personal Agents.
+
+Each Agent supports
+
+Custom Prompt
+
+Memory
+
+Knowledge Base
+
+Model
+
+Provider
+
+Tools
+
+Permissions
+
+Schedules
+
+Goals
+
+==================================================
+WORKSPACE
+==================================================
+
+Multiple Workspaces.
+
+Each Workspace has
+
+Chats
+
+Files
+
+Projects
+
+Documents
+
+Knowledge
+
+Providers
+
+Models
+
+Branding
+
+Members
+
+Permissions
+
+==================================================
+FILE MANAGER
+==================================================
+
+Professional File Manager.
+
+Folders
+
+Upload
+
+Download
+
+Rename
+
+Delete
+
+Restore
+
+Preview
+
+Search
+
+Drag & Drop
+
+ZIP Support
+
+==================================================
+COLLABORATION
+==================================================
+
+Invite Members
+
+Roles
+
+Comments
+
+Mentions
+
+Sharing
+
+Workspace Permissions
+
+==================================================
+EXPORT
+==================================================
+
+Export
+
+Chats
+
+Projects
+
+Images
+
+Videos
+
+Voice
+
+Knowledge
+
+Settings
+
+Workspace
+
+==================================================
+IMPORT
+==================================================
+
+Import
+
+Chats
+
+Projects
+
+Prompt Library
+
+Knowledge
+
+ZIP Projects
+
+==================================================
+KEYBOARD SHORTCUTS
+==================================================
+
+Professional shortcuts.
+
+Similar to
+
+VS Code
+
+Cursor
+
+ChatGPT
+
+==================================================
+DESIGN
+==================================================
+
+Premium.
+
+Minimal.
+
+Modern.
+
+Glass UI where appropriate.
+
+Smooth animations.
+
+Persistent Layout.
+
+Skeleton Loading.
+
+Responsive.
+
+Desktop First.
+
+==================================================
+PERFORMANCE
+==================================================
+
+Streaming
+
+Caching
+
+Lazy Loading
+
+Background Tasks
+
+Virtualization
+
+Optimized Rendering
+
+==================================================
+ACCESSIBILITY
+==================================================
+
+Keyboard Navigation
+
+Screen Reader Support
+
+High Contrast
+
+Reduced Motion
+
+==================================================
+PRODUCTION READY
+==================================================
+
+Everything must be production ready.
+
+No placeholders.
+
+No fake APIs.
+
+No dummy cards.
+
+No unfinished pages.
+
+Every feature must connect to the backend.
+
+==================================================
+FINAL INSTRUCTION
+==================================================
+
+After V5, merge every additional custom prompt supplied by the project owner.
+
+Never ignore appended requirements.
+
+Combine V1 + V2 + V3 + V4 + V5 + Custom Prompt into one unified architecture.
+
+Do not remove existing functionality.
+
+Always extend the platform while maintaining backward compatibility.
+
+The final product should feel like a premium commercial AI SaaS platform capable of competing with ChatGPT, Claude, Cursor and OpenRouter.
+==================================================
+MASTER PROMPT V6
+DEPLOYMENT • DEVELOPMENT • TERMINAL • PRODUCTION
+==================================================
+
+Continue from
+
+V1
+
+V2
+
+V3
+
+V4
+
+V5
+
+Never rewrite previous functionality.
+
+==================================================
+LOCAL DEVELOPMENT
+==================================================
+
+The project must be extremely easy to run.
+
+The project owner should only need
+
+python app.py
+
+Everything else should happen automatically.
+
+==================================================
+APP STARTUP
+==================================================
+
+When app.py starts it should automatically
+
+Load Environment Variables
+
+Verify Python Version
+
+Verify Dependencies
+
+Create Missing Folders
+
+Initialize Database
+
+Run Database Migration
+
+Initialize Logging
+
+Initialize Cache
+
+Initialize Uploads Folder
+
+Initialize AI Providers
+
+Load Settings
+
+Start Background Workers
+
+Start FastAPI
+
+Serve Frontend
+
+Open Localhost (optional)
+
+Display Success Screen
+
+==================================================
+TERMINAL EXPERIENCE
+==================================================
+
+The terminal must NOT look boring.
+
+Use
+
+Rich
+
+Textual
+
+Colorama
+
+Typer
+
+Beautiful startup animation.
+
+Modern colored panels.
+
+Professional spacing.
+
+Status indicators.
+
+Icons.
+
+Progress bars.
+
+Startup timing.
+
+==================================================
+
+Example Startup
+
+══════════════════════════════════════════════════════
+
+        UNIVERSAL AI STUDIO
+
+══════════════════════════════════════════════════════
+
+✓ Python Environment
+
+✓ Dependencies
+
+✓ Database
+
+✓ AI Providers
+
+✓ Models
+
+✓ Authentication
+
+✓ Storage
+
+✓ Background Tasks
+
+✓ API Ready
+
+✓ Frontend Ready
+
+✓ WebSocket Ready
+
+══════════════════════════════════════════════════════
+
+Running...
+
+Local
+
+http://127.0.0.1:8000
+
+Admin
+
+http://127.0.0.1:8000/admin
+
+Health
+
+http://127.0.0.1:8000/health
+
+Swagger
+
+http://127.0.0.1:8000/docs
+
+══════════════════════════════════════════════════════
+
+==================================================
+AUTOMATIC INSTALLER
+==================================================
+
+If dependencies are missing
+
+Display friendly message.
+
+Explain what is missing.
+
+Provide install command.
+
+Never crash without explanation.
+
+==================================================
+ERROR HANDLING
+==================================================
+
+Professional errors.
+
+No ugly traceback unless Debug Mode.
+
+Friendly messages.
+
+Colored output.
+
+Suggestions.
+
+==================================================
+PROJECT COMMANDS
+==================================================
+
+python app.py
+
+Start Server
+
+python app.py --dev
+
+Developer Mode
+
+python app.py --prod
+
+Production Mode
+
+python app.py --check
+
+Run Diagnostics
+
+python app.py --health
+
+Health Check
+
+python app.py --backup
+
+Create Backup
+
+python app.py --restore
+
+Restore Backup
+
+python app.py --version
+
+Project Information
+
+==================================================
+RENDER DEPLOYMENT
+==================================================
+
+Project must deploy easily on Render.
+
+Provide
+
+render.yaml
+
+requirements.txt
+
+runtime.txt
+
+.env.example
+
+Health Endpoint
+
+Startup Script
+
+Production Logging
+
+Automatic Migrations
+
+No Docker required.
+
+==================================================
+FRONTEND
+==================================================
+
+Frontend may use
+
+React
+
+TypeScript
+
+Tailwind
+
+shadcn/ui
+
+Framer Motion
+
+However
+
+The project owner should NOT manually run frontend separately.
+
+app.py must automatically serve the production frontend.
+
+The entire application should appear as a single Python project.
+
+==================================================
+CODE QUALITY
+==================================================
+
+Production Ready
+
+Enterprise Ready
+
+Scalable
+
+Clean Architecture
+
+Reusable
+
+Typed
+
+Documented
+
+Testable
+
+Secure
+
+==================================================
+AI GENERATION SKILLS
+==================================================
+
+While generating code, always follow these engineering skills and principles:
+
+UI & UX
+- ui-ux-pro-max
+- accessibility-first
+- responsive-design
+- premium-animation
+- design-system consistency
+
+Architecture
+- modular-architecture
+- clean-architecture
+- scalable-folder-structure
+- reusable-components
+- separation-of-concerns
+
+Backend
+- fastapi-best-practices
+- async-python
+- sqlalchemy-best-practices
+- alembic-migrations
+- websocket-support
+
+Development
+- systematic-debugging
+- test-driven-development
+- requesting-code-review
+- receiving-code-review
+- subagent-driven-development
+- using-git-worktrees
+- documentation-first
+
+Performance
+- caching
+- lazy-loading
+- background-tasks
+- optimized-database-queries
+- streaming
+
+Security
+- jwt-authentication
+- encrypted-secrets
+- role-based-access-control
+- audit-logging
+- secure-by-default
+
+Deployment
+- render-ready
+- production-ready
+- environment-variable-support
+- health-check-endpoints
+- production-logging
+
+==================================================
+FINAL RULE
+==================================================
+
+The finished project must feel like a professionally engineered commercial AI SaaS product.
+
+It should be possible to clone the repository, install Python dependencies, run:
+
+python app.py
+
+and have the full application available with a polished startup experience and production-ready behavior.
+==================================================
+EXTERNAL UI/COMPONENT INTEGRATION
+==================================================
+
+IMPORTANT
+
+After this document ends, an external UI/component prompt will be appended by the project owner.
+
+This prompt may contain components from sources such as
+
+• 21st.dev
+• shadcn/ui
+• Aceternity UI
+• Magic UI
+• Origin UI
+• Motion Primitives
+• React Bits
+• Custom Components
+• Premium UI Libraries
+
+Treat the appended prompt as an extension of this project.
+
+==================================================
+INTEGRATION RULES
+==================================================
+
+Do NOT copy components blindly.
+
+Analyze every component before integration.
+
+Maintain the existing project architecture.
+
+Reuse existing design tokens.
+
+Reuse theme variables.
+
+Reuse animations.
+
+Reuse routing.
+
+Reuse authentication.
+
+Reuse backend APIs.
+
+Reuse permissions.
+
+Reuse memberships.
+
+Reuse AI infrastructure.
+
+==================================================
+UI CONSISTENCY
+==================================================
+
+Every imported component must automatically match
+
+• Theme
+• Colors
+• Typography
+• Border Radius
+• Shadows
+• Animations
+• Icons
+• Responsive Layout
+• Accessibility
+
+The user should never notice that the component came from another source.
+
+It must feel like a native part of Universal AI Studio.
+
+==================================================
+DO NOT BREAK
+==================================================
+
+Never overwrite existing pages.
+
+Never remove existing functionality.
+
+Never change database schema unnecessarily.
+
+Never replace working components.
+
+Only improve and extend the existing application.
+
+If conflicts exist, intelligently merge both implementations while preserving all existing features.
+
+==================================================
+FINAL RULE
+==================================================
+
+The project owner's appended prompt has equal priority.
+
+Merge it with V1, V2, V3, V4, V5 and V6 to create one unified, production-ready AI SaaS platform.
+
+====================== END OF V6 ======================You are given a task to integrate an existing React component in the codebase
+
+The codebase should support:
+- shadcn project structure  
+- Tailwind CSS
+- Typescript
+
+If it doesn't, provide instructions on how to setup project via shadcn CLI, install Tailwind or Typescript.
+
+Determine the default path for components and styles. 
+If default path for components is not /components/ui, provide instructions on why it's important to create this folder
+Copy-paste this component to /components/ui folder:
+```tsx
+efferd-dashboard-2.tsx
+import { AppShell } from "@/components/app-shell";
+import { Dashboard } from "@/components/dashboard";
+
+export function EfferdDashboard2() {
+	return <AppShell><Dashboard /></AppShell>;
+}
+export default EfferdDashboard2;
+
+
+demo.tsx
+import { EfferdDashboard2 } from "@/components/ui/efferd-dashboard-2";
+export default function Demo() { return <EfferdDashboard2 />; }
+
+```
+
+Install NPM dependencies:
+```bash
+recharts, lucide-react, @radix-ui/react-avatar, @radix-ui/react-separator, @radix-ui/react-collapsible, @radix-ui/react-dropdown-menu
+```
+
+Implementation Guidelines
+ 1. Analyze the component structure and identify all required dependencies
+ 2. Review the component's argumens and state
+ 3. Identify any required context providers or hooks and install them
+ 4. Questions to Ask
+ - What data/props will be passed to this component?
+ - Are there any specific state management requirements?
+ - Are there any required assets (images, icons, etc.)?
+ - What is the expected responsive behavior?
+ - What is the best place to use this component in the app?
+
+Steps to integrate
+ 0. Copy paste all the code above in the correct directories
+ 1. Install external dependencies
+ 2. Fill image assets with Unsplash stock images you know exist
+ 3. Use lucide-react icons for svgs or logos if component requires them
+
+
+You are given a task to integrate an existing React component in the codebase
+
+The codebase should support:
+- shadcn project structure  
+- Tailwind CSS
+- Typescript
+
+If it doesn't, provide instructions on how to setup project via shadcn CLI, install Tailwind or Typescript.
+
+Determine the default path for components and styles. 
+If default path for components is not /components/ui, provide instructions on why it's important to create this folder
+Copy-paste this component to /components/ui folder:
+```tsx
+splite.tsx
+'use client'
+
+import { Suspense, lazy } from 'react'
+const Spline = lazy(() => import('@splinetool/react-spline'))
+
+interface SplineSceneProps {
+  scene: string
+  className?: string
+}
+
+export function SplineScene({ scene, className }: SplineSceneProps) {
+  return (
+    <Suspense 
+      fallback={
+        <div className="w-full h-full flex items-center justify-center">
+          <span className="loader"></span>
+        </div>
+      }
+    >
+      <Spline
+        scene={scene}
+        className={className}
+      />
+    </Suspense>
+  )
+}
+
+demo.tsx
+'use client'
+
+import { SplineScene } from "@/components/ui/splite";
+import { Card } from "@/components/ui/card"
+import { Spotlight } from "@/components/ui/spotlight"
+ 
+export function SplineSceneBasic() {
+  return (
+    <Card className="w-full h-[500px] bg-black/[0.96] relative overflow-hidden">
+      <Spotlight
+        className="-top-40 left-0 md:left-60 md:-top-20"
+        fill="white"
+      />
+      
+      <div className="flex h-full">
+        {/* Left content */}
+        <div className="flex-1 p-8 relative z-10 flex flex-col justify-center">
+          <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400">
+            Interactive 3D
+          </h1>
+          <p className="mt-4 text-neutral-300 max-w-lg">
+            Bring your UI to life with beautiful 3D scenes. Create immersive experiences 
+            that capture attention and enhance your design.
+          </p>
+        </div>
+
+        {/* Right content */}
+        <div className="flex-1 relative">
+          <SplineScene 
+            scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode"
+            className="w-full h-full"
+          />
+        </div>
+      </div>
+    </Card>
+  )
+}
+```
+
+Copy-paste these files for dependencies:
+```tsx
+ibelick/spotlight
+'use client';
+import React, { useRef, useState, useCallback, useEffect } from 'react';
+import { motion, useSpring, useTransform, SpringOptions } from 'framer-motion';
+import { cn } from '@/lib/utils';
+
+type SpotlightProps = {
+  className?: string;
+  size?: number;
+  springOptions?: SpringOptions;
+};
+
+export function Spotlight({
+  className,
+  size = 200,
+  springOptions = { bounce: 0 },
+}: SpotlightProps) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isHovered, setIsHovered] = useState(false);
+  const [parentElement, setParentElement] = useState<HTMLElement | null>(null);
+
+  const mouseX = useSpring(0, springOptions);
+  const mouseY = useSpring(0, springOptions);
+
+  const spotlightLeft = useTransform(mouseX, (x) => `${x - size / 2}px`);
+  const spotlightTop = useTransform(mouseY, (y) => `${y - size / 2}px`);
+
+  useEffect(() => {
+    if (containerRef.current) {
+      const parent = containerRef.current.parentElement;
+      if (parent) {
+        parent.style.position = 'relative';
+        parent.style.overflow = 'hidden';
+        setParentElement(parent);
+      }
+    }
+  }, []);
+
+  const handleMouseMove = useCallback(
+    (event: MouseEvent) => {
+      if (!parentElement) return;
+      const { left, top } = parentElement.getBoundingClientRect();
+      mouseX.set(event.clientX - left);
+      mouseY.set(event.clientY - top);
+    },
+    [mouseX, mouseY, parentElement]
+  );
+
+  useEffect(() => {
+    if (!parentElement) return;
+
+    parentElement.addEventListener('mousemove', handleMouseMove);
+    parentElement.addEventListener('mouseenter', () => setIsHovered(true));
+    parentElement.addEventListener('mouseleave', () => setIsHovered(false));
+
+    return () => {
+      parentElement.removeEventListener('mousemove', handleMouseMove);
+      parentElement.removeEventListener('mouseenter', () => setIsHovered(true));
+      parentElement.removeEventListener('mouseleave', () =>
+        setIsHovered(false)
+      );
+    };
+  }, [parentElement, handleMouseMove]);
+
+  return (
+    <motion.div
+      ref={containerRef}
+      className={cn(
+        'pointer-events-none absolute rounded-full bg-[radial-gradient(circle_at_center,var(--tw-gradient-stops),transparent_80%)] blur-xl transition-opacity duration-200',
+        'from-zinc-50 via-zinc-100 to-zinc-200',
+        isHovered ? 'opacity-100' : 'opacity-0',
+        className
+      )}
+      style={{
+        width: size,
+        height: size,
+        left: spotlightLeft,
+        top: spotlightTop,
+      }}
+    />
+  );
+}
+
+```
+```tsx
+shadcn/card
+import * as React from "react"
+
+import { cn } from "@/lib/utils"
+
+const Card = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn(
+      "rounded-lg border bg-card text-card-foreground shadow-sm",
+      className,
+    )}
+    {...props}
+  />
+))
+Card.displayName = "Card"
+
+const CardHeader = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn("flex flex-col space-y-1.5 p-6", className)}
+    {...props}
+  />
+))
+CardHeader.displayName = "CardHeader"
+
+const CardTitle = React.forwardRef<
+  HTMLParagraphElement,
+  React.HTMLAttributes<HTMLHeadingElement>
+>(({ className, ...props }, ref) => (
+  <h3
+    ref={ref}
+    className={cn(
+      "text-2xl font-semibold leading-none tracking-tight",
+      className,
+    )}
+    {...props}
+  />
+))
+CardTitle.displayName = "CardTitle"
+
+const CardDescription = React.forwardRef<
+  HTMLParagraphElement,
+  React.HTMLAttributes<HTMLParagraphElement>
+>(({ className, ...props }, ref) => (
+  <p
+    ref={ref}
+    className={cn("text-sm text-muted-foreground", className)}
+    {...props}
+  />
+))
+CardDescription.displayName = "CardDescription"
+
+const CardContent = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />
+))
+CardContent.displayName = "CardContent"
+
+const CardFooter = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn("flex items-center p-6 pt-0", className)}
+    {...props}
+  />
+))
+CardFooter.displayName = "CardFooter"
+
+export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }
+
+```
+
+Install NPM dependencies:
+```bash
+@splinetool/runtime, @splinetool/react-spline, framer-motion
+```
+
+Implementation Guidelines
+ 1. Analyze the component structure and identify all required dependencies
+ 2. Review the component's argumens and state
+ 3. Identify any required context providers or hooks and install them
+ 4. Questions to Ask
+ - What data/props will be passed to this component?
+ - Are there any specific state management requirements?
+ - Are there any required assets (images, icons, etc.)?
+ - What is the expected responsive behavior?
+ - What is the best place to use this component in the app?
+
+Steps to integrate
+ 0. Copy paste all the code above in the correct directories
+ 1. Install external dependencies
+ 2. Fill image assets with Unsplash stock images you know exist
+ 3. Use lucide-react icons for svgs or logos if component requires them
+
+
+You are given a task to integrate an existing React component in the codebase
+
+The codebase should support:
+- shadcn project structure  
+- Tailwind CSS
+- Typescript
+
+If it doesn't, provide instructions on how to setup project via shadcn CLI, install Tailwind or Typescript.
+
+Determine the default path for components and styles. 
+If default path for components is not /components/ui, provide instructions on why it's important to create this folder
+Copy-paste this component to /components/ui folder:
+```tsx
+auth-form-1.tsx
+"use client";
+
+import * as React from "react";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { AnimatePresence, motion } from "framer-motion";
+import { ArrowLeft, Eye, EyeOff, Loader2, MailCheck } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Separator } from "@/components/ui/separator";
+import { Checkbox } from "@/components/ui/checkbox";
+import { cn } from "@/lib/utils";
+
+// --------------------------------
+// Types and Enums
+// --------------------------------
+
+enum AuthView {
+  SIGN_IN = "sign-in",
+  SIGN_UP = "sign-up",
+  FORGOT_PASSWORD = "forgot-password",
+  RESET_SUCCESS = "reset-success",
+}
+
+interface AuthState {
+  view: AuthView;
+}
+
+interface FormState {
+  isLoading: boolean;
+  error: string | null;
+  showPassword: boolean;
+}
+
+// --------------------------------
+// Schemas
+// --------------------------------
+
+const signInSchema = z.object({
+  email: z.string().email("Invalid email address"),
+  password: z.string().min(8, "Password must be at least 8 characters"),
+});
+
+const signUpSchema = z.object({
+  name: z.string().min(2, "Name must be at least 2 characters"),
+  email: z.string().email("Invalid email address"),
+  password: z.string().min(8, "Password must be at least 8 characters"),
+  terms: z.literal(true, { errorMap: () => ({ message: "You must agree to the terms" }) }),
+});
+
+const forgotPasswordSchema = z.object({
+  email: z.string().email("Invalid email address"),
+});
+
+type SignInFormValues = z.infer<typeof signInSchema>;
+type SignUpFormValues = z.infer<typeof signUpSchema>;
+type ForgotPasswordFormValues = z.infer<typeof forgotPasswordSchema>;
+
+// --------------------------------
+// Main Auth Component
+// --------------------------------
+
+function Auth({ className, ...props }: React.ComponentProps<"div">) {
+  const [state, setState] = React.useState<AuthState>({ view: AuthView.SIGN_IN });
+
+  const setView = React.useCallback((view: AuthView) => {
+    setState((prev) => ({ ...prev, view }));
+  }, []);
+
+  return (
+    <div
+      data-slot="auth"
+      className={cn("mx-auto w-full max-w-md", className)}
+      {...props}
+    >
+      <div className="relative overflow-hidden rounded-xl border border-border/50 bg-card/80 shadow-xl backdrop-blur-sm">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5" />
+        <div className="relative z-10">
+          <AnimatePresence mode="wait">
+            {state.view === AuthView.SIGN_IN && (
+              <AuthSignIn
+                key="sign-in"
+                onForgotPassword={() => setView(AuthView.FORGOT_PASSWORD)}
+                onSignUp={() => setView(AuthView.SIGN_UP)}
+              />
+            )}
+            {state.view === AuthView.SIGN_UP && (
+              <AuthSignUp
+                key="sign-up"
+                onSignIn={() => setView(AuthView.SIGN_IN)}
+              />
+            )}
+            {state.view === AuthView.FORGOT_PASSWORD && (
+              <AuthForgotPassword
+                key="forgot-password"
+                onSignIn={() => setView(AuthView.SIGN_IN)}
+                onSuccess={() => setView(AuthView.RESET_SUCCESS)}
+              />
+            )}
+            {state.view === AuthView.RESET_SUCCESS && (
+              <AuthResetSuccess
+                key="reset-success"
+                onSignIn={() => setView(AuthView.SIGN_IN)}
+              />
+            )}
+          </AnimatePresence>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// --------------------------------
+// Shared Components
+// --------------------------------
+
+interface AuthFormProps<T> {
+  onSubmit: (data: T) => Promise<void>;
+  children: React.ReactNode;
+  className?: string;
+}
+
+function AuthForm<T>({ onSubmit, children, className }: AuthFormProps<T>) {
+  return (
+    <form
+      onSubmit={onSubmit}
+      data-slot="auth-form"
+      className={cn("space-y-6", className)}
+    >
+      {children}
+    </form>
+  );
+}
+
+interface AuthErrorProps {
+  message: string | null;
+}
+
+function AuthError({ message }: AuthErrorProps) {
+  if (!message) return null;
+  return (
+    <div
+      data-slot="auth-error"
+      className="mb-6 animate-in rounded-lg border border-destructive/20 bg-destructive/10 p-4 text-sm text-destructive"
+    >
+      {message}
+    </div>
+  );
+}
+
+interface AuthSocialButtonsProps {
+  isLoading: boolean;
+}
+
+function AuthSocialButtons({ isLoading }: AuthSocialButtonsProps) {
+  return (
+    <div data-slot="auth-social-buttons" className="w-full mt-6">
+      <Button
+        variant="outline"
+        className="w-full h-12 bg-background/50 border-border/50"
+        disabled={isLoading}
+      >
+        <svg className="mr-2 h-4 w-4" viewBox="0 0 24 24">
+          <path
+            d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
+            fill="#4285F4"
+          />
+          <path
+            d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"
+            fill="#34A853"
+          />
+          <path
+            d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"
+            fill="#FBBC05"
+          />
+          <path
+            d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"
+            fill="#EA4335"
+          />
+          <path d="M1 1h22v22H1z" fill="none" />
+        </svg>
+        Google
+      </Button>
+    </div>
+  );
+}
+
+interface AuthSeparatorProps {
+  text?: string;
+}
+
+function AuthSeparator({ text = "Or continue with" }: AuthSeparatorProps) {
+  return (
+    <div data-slot="auth-separator" className="relative mt-6">
+      <div className="absolute inset-0 flex items-center">
+        <Separator />
+      </div>
+      <div className="relative flex justify-center text-xs uppercase">
+        <span className="bg-card px-2 text-muted-foreground">{text}</span>
+      </div>
+    </div>
+  );
+}
+
+// --------------------------------
+// Sign In Component
+// --------------------------------
+
+interface AuthSignInProps {
+  onForgotPassword: () => void;
+  onSignUp: () => void;
+}
+
+function AuthSignIn({ onForgotPassword, onSignUp }: AuthSignInProps) {
+  const [formState, setFormState] = React.useState<FormState>({
+    isLoading: false,
+    error: null,
+    showPassword: false,
+  });
+
+  const { register, handleSubmit, formState: { errors } } = useForm<SignInFormValues>({
+    resolver: zodResolver(signInSchema),
+    defaultValues: { email: "", password: "" },
+  });
+
+  const onSubmit = async (data: SignInFormValues) => {
+    setFormState((prev) => ({ ...prev, isLoading: true, error: null }));
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 1500)); // Simulate API call
+      setFormState((prev) => ({ ...prev, error: "Invalid email or password" }));
+    } catch {
+      setFormState((prev) => ({ ...prev, error: "An unexpected error occurred" }));
+    } finally {
+      setFormState((prev) => ({ ...prev, isLoading: false }));
+    }
+  };
+
+  return (
+    <motion.div
+      data-slot="auth-sign-in"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      className="p-8"
+    >
+      <div className="mb-8 text-center">
+        <h1 className="text-3xl font-semibold text-foreground">Welcome back</h1>
+        <p className="mt-2 text-sm text-muted-foreground">Sign in to your account</p>
+      </div>
+
+      <AuthError message={formState.error} />
+
+      <AuthForm<SignInFormValues> onSubmit={handleSubmit(onSubmit)}>
+        <div className="space-y-2">
+          <Label htmlFor="email">Email</Label>
+          <Input
+            id="email"
+            type="email"
+            placeholder="name@example.com"
+            disabled={formState.isLoading}
+            className={cn(errors.email && "border-destructive")}
+            {...register("email")}
+          />
+          {errors.email && <p className="text-xs text-destructive">{errors.email.message}</p>}
+        </div>
+
+        <div className="space-y-2">
+          <div className="flex items-center justify-between">
+            <Label htmlFor="password">Password</Label>
+            <Button
+              type="button"
+              variant="link"
+              className="h-auto p-0 text-xs"
+              onClick={onForgotPassword}
+              disabled={formState.isLoading}
+            >
+              Forgot password?
+            </Button>
+          </div>
+          <div className="relative">
+            <Input
+              id="password"
+              type={formState.showPassword ? "text" : "password"}
+              placeholder="••••••••"
+              disabled={formState.isLoading}
+              className={cn(errors.password && "border-destructive")}
+              {...register("password")}
+            />
+            <Button
+              type="button"
+              variant="ghost"
+              size="icon"
+              className="absolute right-0 top-0 h-full"
+              onClick={() =>
+                setFormState((prev) => ({ ...prev, showPassword: !prev.showPassword }))
+              }
+              disabled={formState.isLoading}
+            >
+              {formState.showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+            </Button>
+          </div>
+          {errors.password && <p className="text-xs text-destructive">{errors.password.message}</p>}
+        </div>
+
+        <Button type="submit" className="w-full" disabled={formState.isLoading}>
+          {formState.isLoading ? (
+            <>
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              Signing in...
+            </>
+          ) : (
+            "Sign in"
+          )}
+        </Button>
+      </AuthForm>
+
+      <AuthSeparator />
+      <AuthSocialButtons isLoading={formState.isLoading} />
+
+      <p className="mt-8 text-center text-sm text-muted-foreground">
+        No account?{" "}
+        <Button
+          variant="link"
+          className="h-auto p-0 text-sm"
+          onClick={onSignUp}
+          disabled={formState.isLoading}
+        >
+          Create one
+        </Button>
+      </p>
+    </motion.div>
+  );
+}
+
+// --------------------------------
+// Sign Up Component
+// --------------------------------
+
+interface AuthSignUpProps {
+  onSignIn: () => void;
+}
+
+function AuthSignUp({ onSignIn }: AuthSignUpProps) {
+  const [formState, setFormState] = React.useState<FormState>({
+    isLoading: false,
+    error: null,
+    showPassword: false,
+  });
+
+  const { register, handleSubmit, setValue, watch, formState: { errors } } = useForm<SignUpFormValues>({
+    resolver: zodResolver(signUpSchema),
+    defaultValues: { name: "", email: "", password: "", terms: false },
+  });
+
+  const terms = watch("terms");
+
+  const onSubmit = async (data: SignUpFormValues) => {
+    setFormState((prev) => ({ ...prev, isLoading: true, error: null }));
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 1500)); // Simulate API call
+      setFormState((prev) => ({ ...prev, error: "Email already registered" }));
+    } catch {
+      setFormState((prev) => ({ ...prev, error: "An unexpected error occurred" }));
+    } finally {
+      setFormState((prev) => ({ ...prev, isLoading: false }));
+    }
+  };
+
+  return (
+    <motion.div
+      data-slot="auth-sign-up"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      className="p-8"
+    >
+      <div className="mb-8 text-center">
+        <h1 className="text-3xl font-semibold text-foreground">Create account</h1>
+        <p className="mt-2 text-sm text-muted-foreground">Get started with your account</p>
+      </div>
+
+      <AuthError message={formState.error} />
+
+      <AuthForm<SignUpFormValues> onSubmit={handleSubmit(onSubmit)}>
+        <div className="space-y-2">
+          <Label htmlFor="name">Name</Label>
+          <Input
+            id="name"
+            type="text"
+            placeholder="John Doe"
+            disabled={formState.isLoading}
+            className={cn(errors.name && "border-destructive")}
+            {...register("name")}
+          />
+          {errors.name && <p className="text-xs text-destructive">{errors.name.message}</p>}
+        </div>
+
+        <div className="space-y-2">
+          <Label htmlFor="email">Email</Label>
+          <Input
+            id="email"
+            type="email"
+            placeholder="name@example.com"
+            disabled={formState.isLoading}
+            className={cn(errors.email && "border-destructive")}
+            {...register("email")}
+          />
+          {errors.email && <p className="text-xs text-destructive">{errors.email.message}</p>}
+        </div>
+
+        <div className="space-y-2">
+          <Label htmlFor="password">Password</Label>
+          <div className="relative">
+            <Input
+              id="password"
+              type={formState.showPassword ? "text" : "password"}
+              placeholder="••••••••"
+              disabled={formState.isLoading}
+              className={cn(errors.password && "border-destructive")}
+              {...register("password")}
+            />
+            <Button
+              type="button"
+              variant="ghost"
+              size="icon"
+              className="absolute right-0 top-0 h-full"
+              onClick={() =>
+                setFormState((prev) => ({ ...prev, showPassword: !prev.showPassword }))
+              }
+              disabled={formState.isLoading}
+            >
+              {formState.showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+            </Button>
+          </div>
+          {errors.password && <p className="text-xs text-destructive">{errors.password.message}</p>}
+        </div>
+
+        <div className="flex items-center space-x-2">
+          <Checkbox
+            id="terms"
+            checked={terms}
+            onCheckedChange={(checked) => setValue("terms", checked === true)}
+            disabled={formState.isLoading}
+          />
+          <div className="space-y-1">
+            <Label htmlFor="terms" className="text-sm">
+              I agree to the terms
+            </Label>
+            <p className="text-xs text-muted-foreground">
+              By signing up, you agree to our{" "}
+              <Button variant="link" className="h-auto p-0 text-xs">
+                Terms
+              </Button>{" "}
+              and{" "}
+              <Button variant="link" className="h-auto p-0 text-xs">
+                Privacy Policy
+              </Button>
+              .
+            </p>
+          </div>
+        </div>
+        {errors.terms && <p className="text-xs text-destructive">{errors.terms.message}</p>}
+
+        <Button type="submit" className="w-full" disabled={formState.isLoading}>
+          {formState.isLoading ? (
+            <>
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              Creating account...
+            </>
+          ) : (
+            "Create account"
+          )}
+        </Button>
+      </AuthForm>
+
+      <AuthSeparator />
+      <AuthSocialButtons isLoading={formState.isLoading} />
+
+      <p className="mt-8 text-center text-sm text-muted-foreground">
+        Have an account?{" "}
+        <Button
+          variant="link"
+          className="h-auto p-0 text-sm"
+          onClick={onSignIn}
+          disabled={formState.isLoading}
+        >
+          Sign in
+        </Button>
+      </p>
+    </motion.div>
+  );
+}
+
+// --------------------------------
+// Forgot Password Component
+// --------------------------------
+
+interface AuthForgotPasswordProps {
+  onSignIn: () => void;
+  onSuccess: () => void;
+}
+
+function AuthForgotPassword({ onSignIn, onSuccess }: AuthForgotPasswordProps) {
+  const [formState, setFormState] = React.useState<FormState>({
+    isLoading: false,
+    error: null,
+    showPassword: false,
+  });
+
+  const { register, handleSubmit, formState: { errors } } = useForm<ForgotPasswordFormValues>({
+    resolver: zodResolver(forgotPasswordSchema),
+    defaultValues: { email: "" },
+  });
+
+  const onSubmit = async (data: ForgotPasswordFormValues) => {
+    setFormState((prev) => ({ ...prev, isLoading: true, error: null }));
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 1500)); // Simulate API call
+      onSuccess();
+    } catch {
+      setFormState((prev) => ({ ...prev, error: "An unexpected error occurred" }));
+    } finally {
+      setFormState((prev) => ({ ...prev, isLoading: false }));
+    }
+  };
+
+  return (
+    <motion.div
+      data-slot="auth-forgot-password"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      className="p-8"
+    >
+      <Button
+        variant="ghost"
+        size="icon"
+        className="absolute left-4 top-4"
+        onClick={onSignIn}
+        disabled={formState.isLoading}
+      >
+        <ArrowLeft className="h-4 w-4" />
+        <span className="sr-only">Back</span>
+      </Button>
+
+      <div className="mb-8 text-center">
+        <h1 className="text-3xl font-semibold text-foreground">Reset password</h1>
+        <p className="mt-2 text-sm text-muted-foreground">
+          Enter your email to receive a reset link
+        </p>
+      </div>
+
+      <AuthError message={formState.error} />
+
+      <AuthForm<ForgotPasswordFormValues> onSubmit={handleSubmit(onSubmit)}>
+        <div className="space-y-2">
+          <Label htmlFor="email">Email</Label>
+          <Input
+            id="email"
+            type="email"
+            placeholder="name@example.com"
+            disabled={formState.isLoading}
+            className={cn(errors.email && "border-destructive")}
+            {...register("email")}
+          />
+          {errors.email && <p className="text-xs text-destructive">{errors.email.message}</p>}
+        </div>
+
+        <Button type="submit" className="w-full" disabled={formState.isLoading}>
+          {formState.isLoading ? (
+            <>
+              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+              Sending...
+            </>
+          ) : (
+            "Send reset link"
+          )}
+        </Button>
+      </AuthForm>
+
+      <p className="mt-8 text-center text-sm text-muted-foreground">
+        Remember your password?{" "}
+        <Button
+          variant="link"
+          className="h-auto p-0 text-sm"
+          onClick={onSignIn}
+          disabled={formState.isLoading}
+        >
+          Sign in
+        </Button>
+      </p>
+    </motion.div>
+  );
+}
+
+// --------------------------------
+// Reset Success Component
+// --------------------------------
+
+interface AuthResetSuccessProps {
+  onSignIn: () => void;
+}
+
+function AuthResetSuccess({ onSignIn }: AuthResetSuccessProps) {
+  return (
+    <motion.div
+      data-slot="auth-reset-success"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      className="flex flex-col items-center p-8 text-center"
+    >
+      <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
+        <MailCheck className="h-8 w-8 text-primary" />
+      </div>
+
+      <h1 className="text-2xl font-semibold text-foreground">Check your email</h1>
+      <p className="mt-2 text-sm text-muted-foreground">
+        We sent a password reset link to your email.
+      </p>
+
+      <Button
+        variant="outline"
+        className="mt-6 w-full max-w-xs"
+        onClick={onSignIn}
+      >
+        Back to sign in
+      </Button>
+
+      <p className="mt-6 text-xs text-muted-foreground">
+        No email? Check spam or{" "}
+        <Button variant="link" className="h-auto p-0 text-xs">
+          try another email
+        </Button>
+      </p>
+    </motion.div>
+  );
+}
+
+// --------------------------------
+// Exports
+// --------------------------------
+
+export {
+  Auth,
+  AuthSignIn,
+  AuthSignUp,
+  AuthForgotPassword,
+  AuthResetSuccess,
+  AuthForm,
+  AuthError,
+  AuthSocialButtons,
+  AuthSeparator,
+};
+
+demo.tsx
+"use client";
+
+import * as React from "react";
+import { Auth } from "@/components/ui/auth-form-1";
+
+export default function DemoMain() {
+  return (
+    <div className="w-full flex justify-center items-center min-h-screen p-4">
+      <Auth />
+    </div>
+  );
+}
+```
+
+Copy-paste these files for dependencies:
+```tsx
+shadcn/button
+import * as React from "react"
+import { Slot } from "@radix-ui/react-slot"
+import { cva, type VariantProps } from "class-variance-authority"
+
+import { cn } from "@/lib/utils"
+
+const buttonVariants = cva(
+  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  {
+    variants: {
+      variant: {
+        default: "bg-primary text-primary-foreground hover:bg-primary/90",
+        destructive:
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        outline:
+          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+        secondary:
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        ghost: "hover:bg-accent hover:text-accent-foreground",
+        link: "text-primary underline-offset-4 hover:underline",
+      },
+      size: {
+        default: "h-10 px-4 py-2",
+        sm: "h-9 rounded-md px-3",
+        lg: "h-11 rounded-md px-8",
+        icon: "h-10 w-10",
+      },
+    },
+    defaultVariants: {
+      variant: "default",
+      size: "default",
+    },
+  },
+)
+
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    VariantProps<typeof buttonVariants> {
+  asChild?: boolean
+}
+
+const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant, size, asChild = false, ...props }, ref) => {
+    const Comp = asChild ? Slot : "button"
+    return (
+      <Comp
+        className={cn(buttonVariants({ variant, size, className }))}
+        ref={ref}
+        {...props}
+      />
+    )
+  },
+)
+Button.displayName = "Button"
+
+export { Button, buttonVariants }
+
+```
+```tsx
+shadcn/card
+import * as React from "react"
+
+import { cn } from "@/lib/utils"
+
+const Card = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn(
+      "rounded-lg border bg-card text-card-foreground shadow-sm",
+      className,
+    )}
+    {...props}
+  />
+))
+Card.displayName = "Card"
+
+const CardHeader = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn("flex flex-col space-y-1.5 p-6", className)}
+    {...props}
+  />
+))
+CardHeader.displayName = "CardHeader"
+
+const CardTitle = React.forwardRef<
+  HTMLParagraphElement,
+  React.HTMLAttributes<HTMLHeadingElement>
+>(({ className, ...props }, ref) => (
+  <h3
+    ref={ref}
+    className={cn(
+      "text-2xl font-semibold leading-none tracking-tight",
+      className,
+    )}
+    {...props}
+  />
+))
+CardTitle.displayName = "CardTitle"
+
+const CardDescription = React.forwardRef<
+  HTMLParagraphElement,
+  React.HTMLAttributes<HTMLParagraphElement>
+>(({ className, ...props }, ref) => (
+  <p
+    ref={ref}
+    className={cn("text-sm text-muted-foreground", className)}
+    {...props}
+  />
+))
+CardDescription.displayName = "CardDescription"
+
+const CardContent = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />
+))
+CardContent.displayName = "CardContent"
+
+const CardFooter = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => (
+  <div
+    ref={ref}
+    className={cn("flex items-center p-6 pt-0", className)}
+    {...props}
+  />
+))
+CardFooter.displayName = "CardFooter"
+
+export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }
+
+```
+```tsx
+shadcn/input
+import * as React from "react"
+
+import { cn } from "@/lib/utils"
+
+export interface InputProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {}
+
+const Input = React.forwardRef<HTMLInputElement, InputProps>(
+  ({ className, type, ...props }, ref) => {
+    return (
+      <input
+        type={type}
+        className={cn(
+          "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium file:text-foreground placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50",
+          className
+        )}
+        ref={ref}
+        {...props}
+      />
+    )
+  }
+)
+Input.displayName = "Input"
+
+export { Input }
+
+```
+```tsx
+shadcn/label
+"use client"
+
+import * as React from "react"
+import * as LabelPrimitive from "@radix-ui/react-label"
+import { cva, type VariantProps } from "class-variance-authority"
+
+import { cn } from "@/lib/utils"
+
+const labelVariants = cva(
+  "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
+)
+
+const Label = React.forwardRef<
+  React.ElementRef<typeof LabelPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof LabelPrimitive.Root> &
+    VariantProps<typeof labelVariants>
+>(({ className, ...props }, ref) => (
+  <LabelPrimitive.Root
+    ref={ref}
+    className={cn(labelVariants(), className)}
+    {...props}
+  />
+))
+Label.displayName = LabelPrimitive.Root.displayName
+
+export { Label }
+
+```
+```tsx
+shadcn/separator
+"use client"
+
+import * as React from "react"
+import * as SeparatorPrimitive from "@radix-ui/react-separator"
+
+import { cn } from "@/lib/utils"
+
+const Separator = React.forwardRef<
+  React.ElementRef<typeof SeparatorPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof SeparatorPrimitive.Root>
+>(
+  (
+    { className, orientation = "horizontal", decorative = true, ...props },
+    ref
+  ) => (
+    <SeparatorPrimitive.Root
+      ref={ref}
+      decorative={decorative}
+      orientation={orientation}
+      className={cn(
+        "shrink-0 bg-border",
+        orientation === "horizontal" ? "h-[1px] w-full" : "h-full w-[1px]",
+        className
+      )}
+      {...props}
+    />
+  )
+)
+Separator.displayName = SeparatorPrimitive.Root.displayName
+
+export { Separator }
+
+```
+```tsx
+shadcn/checkbox
+"use client"
+
+import * as React from "react"
+import * as CheckboxPrimitive from "@radix-ui/react-checkbox"
+import { Check } from "lucide-react"
+
+import { cn } from "@/lib/utils"
+
+const Checkbox = React.forwardRef<
+  React.ElementRef<typeof CheckboxPrimitive.Root>,
+  React.ComponentPropsWithoutRef<typeof CheckboxPrimitive.Root>
+>(({ className, ...props }, ref) => (
+  <CheckboxPrimitive.Root
+    ref={ref}
+    className={cn(
+      "peer h-4 w-4 shrink-0 rounded-sm border border-primary ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground",
+      className,
+    )}
+    {...props}
+  >
+    <CheckboxPrimitive.Indicator
+      className={cn("flex items-center justify-center text-current")}
+    >
+      <Check className="h-4 w-4" />
+    </CheckboxPrimitive.Indicator>
+  </CheckboxPrimitive.Root>
+))
+Checkbox.displayName = CheckboxPrimitive.Root.displayName
+
+export { Checkbox }
+
+```
+
+Install NPM dependencies:
+```bash
+zod, lucide-react, framer-motion, react-hook-form, @hookform/resolvers, @radix-ui/react-slot, class-variance-authority, @radix-ui/react-label, @radix-ui/react-separator, @radix-ui/react-checkbox
+```
+
+Implementation Guidelines
+ 1. Analyze the component structure and identify all required dependencies
+ 2. Review the component's argumens and state
+ 3. Identify any required context providers or hooks and install them
+ 4. Questions to Ask
+ - What data/props will be passed to this component?
+ - Are there any specific state management requirements?
+ - Are there any required assets (images, icons, etc.)?
+ - What is the expected responsive behavior?
+ - What is the best place to use this component in the app?
+
+Steps to integrate
+ 0. Copy paste all the code above in the correct directories
+ 1. Install external dependencies
+ 2. Fill image assets with Unsplash stock images you know exist
+ 3. Use lucide-react icons for svgs or logos if component requires them
