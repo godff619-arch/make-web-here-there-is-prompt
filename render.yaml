@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: universal-ai-studio
+    env: python
+    buildCommand: |
+      pip install -r backend/requirements.txt
+      cd frontend && npm install && npm run build && cd ..
+    startCommand: python app.py --prod --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        value: sqlite:///./universal_ai.db
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "false"
+      - key: PYTHON_VERSION
+        value: "3.11"

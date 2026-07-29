@@ -1,0 +1,17 @@
+*.db
+*.pyc
+__pycache__/
+*.egg-info/
+.eggs/
+dist/
+build/
+*.egg
+.env
+*.log
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+node_modules/
+frontend/dist/
+.VSCodeCounter/
+.DS_Store
