@@ -111,8 +111,10 @@ function AdminProviders() {
   const [renameModelValue, setRenameModelValue] = useState('')
 
   const loadProviders = async () => {
-    const r = await API.providers.list()
-    setProviders(r.data || [])
+    try {
+      const r = await API.providers.list()
+      setProviders(r?.data || [])
+    } catch { setProviders([]) }
   }
 
   useEffect(() => { loadProviders() }, [])
@@ -123,52 +125,59 @@ function AdminProviders() {
     setTestResult(null)
     try {
       const [m, b, k] = await Promise.all([
-        API.providers.listModels(p.id),
-        API.providers.listBaseUrls(p.id),
-        API.providers.listApiKeys(p.id),
+        API.providers.listModels(p?.id),
+        API.providers.listBaseUrls(p?.id),
+        API.providers.listApiKeys(p?.id),
       ])
-      setModels(m.data || [])
-      setBaseUrls(b.data || [])
-      setApiKeys(k.data || [])
+      setModels(m?.data || [])
+      setBaseUrls(b?.data || [])
+      setApiKeys(k?.data || [])
     } catch { setModels([]); setBaseUrls([]); setApiKeys([]) }
     setLoading(false)
   }
 
-  const addProvider = async () => {
-    if (!newProvider.name || !newProvider.slug) return
-    const r = await API.providers.create(newProvider)
-    const pid = r.data.id
-
-    if (newBaseUrlText.trim()) {
-      await API.providers.addBaseUrl(pid, { url: newBaseUrlText.trim() })
-    }
-    if (newApiKeyText.trim()) {
-      await API.providers.addApiKey(pid, { key_name: 'default', encrypted_key: newApiKeyText.trim() })
-    }
-
-    setNewProvider({ name: '', slug: '', description: '', api_type: 'openai_compatible' })
-    setNewBaseUrlText('')
-    setNewApiKeyText('')
-    setShowAddProvider(false)
-    await loadProviders()
-    const p = providers.find(x => x.id === pid) || { id: pid, ...newProvider }
-    selectProvider(p)
-  }
-
   const testConnection = async (isFromForm = false) => {
+    if (!newBaseUrlText.trim() || !newApiKeyText.trim()) return
     setTesting(true)
     setTestResult(null)
     try {
       const payload = {
-        base_url: newBaseUrlText || baseUrls[0]?.url || '',
-        encrypted_key: newApiKeyText || apiKeys[0]?.encrypted_key || '',
+        base_url: newBaseUrlText.trim(),
+        encrypted_key: newApiKeyText.trim(),
       }
       const r = await API.providers.testConnection(selected?.id || '', payload)
-      setTestResult(r.data)
+      setTestResult(r?.data || { success: false, error: 'No response', latency_ms: 0 })
     } catch (err: any) {
-      setTestResult({ success: false, error: err.response?.data?.detail || err.message, latency_ms: 0 })
+      setTestResult({ success: false, error: err.response?.data?.detail || err.message || 'Connection failed', latency_ms: 0 })
     }
     setTesting(false)
+  }
+
+  const addProvider = async () => {
+    if (!newProvider.name || !newProvider.slug) return
+    try {
+      const r = await API.providers.create(newProvider)
+      const pid = r?.data?.id
+      if (!pid) return
+
+      if (newBaseUrlText.trim()) {
+        await API.providers.addBaseUrl(pid, { url: newBaseUrlText.trim() })
+      }
+      if (newApiKeyText.trim()) {
+        await API.providers.addApiKey(pid, { key_name: 'default', encrypted_key: newApiKeyText.trim() })
+      }
+
+      setNewProvider({ name: '', slug: '', description: '', api_type: 'openai_compatible' })
+      setNewBaseUrlText('')
+      setNewApiKeyText('')
+      setShowAddProvider(false)
+      setTestResult(null)
+      await loadProviders()
+      const p = providers.find(x => x.id === pid) || { id: pid, ...newProvider }
+      selectProvider(p)
+    } catch (err: any) {
+      alert(err.response?.data?.detail || 'Failed to create provider')
+    }
   }
 
   const addBaseUrl = async () => {
@@ -280,22 +289,22 @@ function AdminProviders() {
 
             {testResult && (
               <div className={cn("rounded-xl p-4 text-sm", testResult.success ? "bg-green-500/10 border border-green-500/20" : "bg-red-500/10 border border-red-500/20")}>
-                <div className="flex items-center gap-3 mb-2">
-                  {testResult.success
-                    ? <CheckCircle2 className="h-5 w-5 text-green-500" />
-                    : <XCircle className="h-5 w-5 text-red-500" />}
+                <div className="flex items-center gap-3">
+                  {testResult.success ? <CheckCircle2 className="h-5 w-5 text-green-500" /> : <XCircle className="h-5 w-5 text-red-500" />}
                   <span className="font-semibold">{testResult.success ? 'Connection Successful' : 'Connection Failed'}</span>
-                  {testResult.latency_ms !== undefined && (
-                    <span className="ml-auto text-xs bg-background px-2 py-0.5 rounded-full font-mono">
+                  {testResult.latency_ms !== undefined && testResult.latency_ms > 0 && (
+                    <span className="ml-auto text-xs bg-background px-2 py-0.5 rounded-full font-mono font-medium">
                       {testResult.latency_ms}ms
                     </span>
                   )}
                 </div>
-                {testResult.success && testResult.model_count !== undefined && (
-                  <p className="text-xs text-muted-foreground">Found {testResult.model_count} models: {testResult.models_found?.slice(0, 8).join(', ')}{testResult.model_count > 8 ? '...' : ''}</p>
+                {testResult.success && (testResult.model_count ?? 0) > 0 && (
+                  <p className="text-xs text-muted-foreground mt-1">Found {testResult.model_count} models: {(testResult.models_found || []).slice(0, 8).join(', ')}{(testResult.model_count ?? 0) > 8 ? '...' : ''}</p>
                 )}
-                {!testResult.success && <p className="text-xs text-muted-foreground">{testResult.error}</p>}
-                {testResult.discovered && <p className="text-xs text-muted-foreground">Discovered {testResult.count} models: {testResult.discovered?.slice(0, 8).join(', ')}</p>}
+                {!testResult.success && <p className="text-xs text-muted-foreground mt-1">{testResult.error || 'Connection failed'}</p>}
+                {testResult.discovered && testResult.count > 0 && (
+                  <p className="text-xs text-muted-foreground mt-1">Discovered {testResult.count} models: {(testResult.discovered || []).slice(0, 8).join(', ')}</p>
+                )}
               </div>
             )}
 
