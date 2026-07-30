@@ -9,7 +9,7 @@ import {
   MessageSquare, Code, Image, Video, Mic, FileText, BookOpen, Database,
   Settings, Users, Palette, Sun, Moon, LogOut, Menu, X, Sparkles,
   Search, Bell, FolderOpen, History, Star, Pin, Archive, Home,
-  Bot, SlidersHorizontal, Shield, CreditCard, Zap, Key
+  Bot, SlidersHorizontal, Shield, CreditCard, Zap, Key, TestTube, BarChart3
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -96,7 +96,7 @@ export function AppLayout() {
                   to={item.path}
                   className={cn(
                     "flex items-center gap-3 rounded-lg px-3 py-2 text-sm transition-colors",
-                    location.pathname === item.path
+                    location.pathname.startsWith(item.path)
                       ? "bg-primary/10 text-primary"
                       : "text-muted-foreground hover:bg-accent hover:text-foreground"
                   )}
@@ -158,11 +158,5 @@ export function AppLayout() {
 }
 
 export function AuthLayout() {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-background p-4">
-      <div className="w-full max-w-md">
-        <Outlet />
-      </div>
-    </div>
-  )
+  return <Outlet />
 }

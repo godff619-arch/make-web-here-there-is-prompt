@@ -56,6 +56,8 @@ export interface Conversation {
   title: string
   provider_id: string | null
   model_id: string | null
+  mode_id: string | null
+  workspace_id: string | null
   is_archived: boolean
   is_pinned: boolean
   is_favorite: boolean
@@ -106,13 +108,26 @@ export const API = {
   providers: {
     list: () => api.get('/providers'),
     create: (data: any) => api.post('/providers', data),
+    updateProvider: (id: string, data: any) => api.put(`/providers/${id}`, { data }),
+    deleteProvider: (id: string) => api.delete(`/providers/${id}`),
     listModels: (id: string) => api.get(`/providers/${id}/models`),
     addModel: (id: string, data: any) => api.post(`/providers/${id}/models`, data),
+    updateModel: (providerId: string, modelId: string, data: any) => api.put(`/providers/${providerId}/models/${modelId}`, { data }),
+    deleteModel: (providerId: string, modelId: string) => api.delete(`/providers/${providerId}/models/${modelId}`),
     discoverModels: (id: string) => api.post(`/providers/${id}/discover-models`),
+    listBaseUrls: (id: string) => api.get(`/providers/${id}/base-urls`),
+    addBaseUrl: (id: string, data: any) => api.post(`/providers/${id}/base-urls`, data),
+    addApiKey: (id: string, data: any) => api.post(`/providers/${id}/api-keys`, data),
+    listApiKeys: (id: string) => api.get(`/providers/${id}/api-keys`),
+    testConnection: (id: string, data?: any) => api.post(`/providers/${id}/test-connection`, data || {}),
+    allModels: () => api.get('/providers/all-models'),
     listModes: () => api.get('/providers/modes'),
     createMode: (data: any) => api.post('/providers/modes', data),
     listUserProviders: () => api.get('/providers/user'),
     addUserProvider: (data: any) => api.post('/providers/user', data),
+    updateUserProvider: (id: string, data: any) => api.put(`/providers/user/${id}`, { data }),
+    deleteUserProvider: (id: string) => api.delete(`/providers/user/${id}`),
+    discoverUserModels: (id: string) => api.post(`/providers/user/${id}/discover-models`),
   },
   admin: {
     getDashboard: () => api.get('/admin/dashboard'),

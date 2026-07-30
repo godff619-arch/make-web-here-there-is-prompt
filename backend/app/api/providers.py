@@ -148,7 +148,161 @@ def add_user_provider(provider_name: str, base_url: Optional[str] = None, encryp
     return {"id": p.id, "provider_name": p.provider_name}
 
 
-@router.post("/{provider_id}/discover-models")
+@router.get("/all-models")
+def all_models(db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
+    global_models = db.query(AIModel).filter(AIModel.is_enabled == True).all()
+    models = []
+
+    for m in global_models:
+        provider = db.query(AIProvider).filter(AIProvider.id == m.provider_id).first()
+        models.append({
+            "id": m.id, "name": m.name, "alias": m.alias,
+            "provider_id": m.provider_id,
+            "provider_name": provider.name if provider else "Unknown",
+            "is_global": True, "is_custom": False,
+            "context_window": m.context_window, "max_tokens": m.max_tokens,
+            "supports_streaming": m.supports_streaming,
+            "supports_vision": m.supports_vision,
+            "category": m.category,
+        })
+
+    user_providers = db.query(UserProvider).filter(UserProvider.user_id == current_user.id, UserProvider.is_enabled == True).all()
+    for up in user_providers:
+        for md in (up.models_data or []):
+            if isinstance(md, dict):
+                models.append({
+                    "id": f"custom_{up.id}_{md.get('name', '')}",
+                    "name": md.get("name", ""),
+                    "alias": md.get("name", ""),
+                    "provider_id": up.id,
+                    "provider_name": up.provider_name,
+                    "is_global": False, "is_custom": True,
+                    "context_window": md.get("context_window", 4096),
+                    "max_tokens": md.get("max_tokens", 4096),
+                    "supports_streaming": True,
+                    "supports_vision": md.get("supports_vision", False),
+                    "category": "custom",
+                })
+
+    return {"models": models}
+
+
+@router.put("/user/{provider_id}")
+def update_user_provider(provider_id: str, data: dict, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
+    p = db.query(UserProvider).filter(UserProvider.id == provider_id, UserProvider.user_id == current_user.id).first()
+    if not p:
+        raise HTTPException(status_code=404)
+    for k, v in data.items():
+        if hasattr(p, k):
+            setattr(p, k, v)
+    db.commit()
+    return {"message": "Updated"}
+
+
+@router.delete("/user/{provider_id}")
+def delete_user_provider(provider_id: str, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
+    p = db.query(UserProvider).filter(UserProvider.id == provider_id, UserProvider.user_id == current_user.id).first()
+    if not p:
+        raise HTTPException(status_code=404)
+    db.delete(p)
+    db.commit()
+    return {"message": "Deleted"}
+
+
+@router.post("/user/{provider_id}/discover-models")
+async def discover_user_models(provider_id: str, db: Session = Depends(get_db), current_user: User = Depends(get_current_user)):
+    up = db.query(UserProvider).filter(UserProvider.id == provider_id, UserProvider.user_id == current_user.id).first()
+    if not up:
+        raise HTTPException(status_code=404)
+    if not up.base_url or not up.encrypted_key:
+        raise HTTPException(status_code=400, detail="Base URL or API key not configured")
+    try:
+        async with httpx.AsyncClient(timeout=15) as client:
+            resp = await client.get(
+                f"{up.base_url.rstrip('/')}/models",
+                headers={"Authorization": f"Bearer {up.encrypted_key}"}
+            )
+            if resp.status_code == 200:
+                data = resp.json()
+                models_data = data.get("data", data.get("models", []))
+                discovered = []
+                for md in models_data:
+                    model_id = md.get("id", md.get("name", ""))
+                    if model_id:
+                        discovered.append({"name": model_id, "context_window": 4096, "max_tokens": 4096})
+                up.models_data = discovered
+                db.commit()
+                return {"discovered": [d["name"] for d in discovered], "count": len(discovered)}
+    except Exception:
+        pass
+    return {"discovered": [], "count": 0}
+
+
+@router.post("/{provider_id}/api-keys")
+def add_api_key(provider_id: str, key_name: str, encrypted_key: str, db: Session = Depends(get_db), current_user: User = Depends(get_current_admin)):
+    p = db.query(AIProvider).filter(AIProvider.id == provider_id).first()
+    if not p:
+        raise HTTPException(status_code=404, detail="Provider not found")
+    k = APIKeyVault(id=generate_uuid(), provider_id=provider_id, key_name=key_name, encrypted_key=encrypted_key, is_active=True)
+    db.add(k)
+    db.commit()
+    return {"id": k.id, "key_name": k.key_name}
+
+
+@router.get("/{provider_id}/api-keys")
+def list_api_keys(provider_id: str, db: Session = Depends(get_db), current_user: User = Depends(get_current_admin)):
+    keys = db.query(APIKeyVault).filter(APIKeyVault.provider_id == provider_id, APIKeyVault.is_active == True).all()
+    return [{"id": k.id, "key_name": k.key_name, "is_active": k.is_active, "last_used_at": str(k.last_used_at) if k.last_used_at else None, "health_status": k.health_status} for k in keys]
+
+
+@router.post("/{provider_id}/test-connection")
+async def test_connection(provider_id: str, data: dict, db: Session = Depends(get_db), current_user: User = Depends(get_current_admin)):
+    base_url_val = data.get("base_url", "")
+    api_key_val = data.get("encrypted_key", "")
+
+    if not base_url_val or not api_key_val:
+        bu = db.query(BaseURL).filter(BaseURL.provider_id == provider_id, BaseURL.is_enabled == True).first()
+        ak = db.query(APIKeyVault).filter(APIKeyVault.provider_id == provider_id, APIKeyVault.is_active == True).first()
+        base_url_val = bu.url if bu else ""
+        api_key_val = ak.encrypted_key if ak else ""
+
+    if not base_url_val or not api_key_val:
+        raise HTTPException(status_code=400, detail="Base URL and API Key are required")
+
+    import time
+    start = time.time()
+    try:
+        async with httpx.AsyncClient(timeout=15) as client:
+            resp = await client.get(
+                f"{base_url_val.rstrip('/')}/models",
+                headers={"Authorization": f"Bearer {api_key_val}"}
+            )
+            latency_ms = round((time.time() - start) * 1000, 1)
+            model_names = []
+            if resp.status_code == 200:
+                data_resp = resp.json()
+                models_data = data_resp.get("data", data_resp.get("models", []))
+                for md in models_data:
+                    nm = md.get("id", md.get("name", ""))
+                    if nm:
+                        model_names.append(nm)
+            return {
+                "success": resp.status_code == 200,
+                "status_code": resp.status_code,
+                "latency_ms": latency_ms,
+                "models_found": model_names,
+                "model_count": len(model_names),
+            }
+    except Exception as e:
+        latency_ms = round((time.time() - start) * 1000, 1)
+        return {
+            "success": False,
+            "status_code": 0,
+            "latency_ms": latency_ms,
+            "error": str(e),
+            "models_found": [],
+            "model_count": 0,
+        }
 async def discover_models(provider_id: str, db: Session = Depends(get_db), current_user: User = Depends(get_current_admin)):
     provider = db.query(AIProvider).filter(AIProvider.id == provider_id).first()
     if not provider:
@@ -180,7 +334,7 @@ async def discover_models(provider_id: str, db: Session = Depends(get_db), curre
                             discovered.append(model_id)
                 db.commit()
                 return {"discovered": discovered, "count": len(discovered)}
-    except Exception as e:
+    except Exception:
         pass
 
     return {"discovered": [], "count": 0, "message": "Could not discover models from this endpoint"}
