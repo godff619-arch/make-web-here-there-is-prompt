@@ -101,6 +101,8 @@ function AdminProviders() {
   const [testResult, setTestResult] = useState<any>(null)
 
   const [showAddProvider, setShowAddProvider] = useState(false)
+  const [showNewApiKey, setShowNewApiKey] = useState(false)
+  const [showTestApiKey, setShowTestApiKey] = useState(false)
   const [newProvider, setNewProvider] = useState({ name: '', slug: '', description: '', api_type: 'openai_compatible' })
   const [newBaseUrlText, setNewBaseUrlText] = useState('')
   const [newApiKeyText, setNewApiKeyText] = useState('')
@@ -153,14 +155,15 @@ function AdminProviders() {
     selectProvider(p)
   }
 
-  const testConnection = async () => {
+  const testConnection = async (isFromForm = false) => {
     setTesting(true)
     setTestResult(null)
     try {
-      const r = await API.providers.testConnection(selected.id, {
-        base_url: newBaseUrlText || undefined,
-        encrypted_key: newApiKeyText || undefined,
-      })
+      const payload = {
+        base_url: newBaseUrlText || baseUrls[0]?.url || '',
+        encrypted_key: newApiKeyText || apiKeys[0]?.encrypted_key || '',
+      }
+      const r = await API.providers.testConnection(selected?.id || '', payload)
       setTestResult(r.data)
     } catch (err: any) {
       setTestResult({ success: false, error: err.response?.data?.detail || err.message, latency_ms: 0 })
@@ -259,14 +262,20 @@ function AdminProviders() {
               </div>
               <div>
                 <Label>API Key</Label>
-                <div className="flex gap-2">
-                  <Input type="password" value={newApiKeyText} onChange={e => setNewApiKeyText(e.target.value)} placeholder="sk-..." className="flex-1" />
-                  <Button variant="outline" size="sm" onClick={testConnection} disabled={testing || !newBaseUrlText.trim() || !newApiKeyText.trim()} className="flex-shrink-0">
-                    {testing ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <Play className="h-3.5 w-3.5" />}
-                    <span className="ml-1 hidden sm:inline">Test</span>
-                  </Button>
+                <div className="relative">
+                  <Input type={showNewApiKey ? 'text' : 'password'} value={newApiKeyText} onChange={e => setNewApiKeyText(e.target.value)} placeholder="sk-..." className="pr-10" />
+                  <button type="button" onClick={() => setShowNewApiKey(!showNewApiKey)} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground">
+                    {showNewApiKey ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                  </button>
                 </div>
               </div>
+            </div>
+
+            <div className="flex justify-end">
+              <Button variant="outline" size="sm" onClick={() => testConnection(true)} disabled={testing || !newBaseUrlText.trim() || !newApiKeyText.trim()}>
+                {testing ? <Loader2 className="h-3.5 w-3.5 mr-1.5 animate-spin" /> : <Play className="h-3.5 w-3.5 mr-1.5" />}
+                Test Connection
+              </Button>
             </div>
 
             {testResult && (
@@ -348,9 +357,14 @@ function AdminProviders() {
                 <div>
                   <div className="flex items-center justify-between mb-2"><h4 className="text-sm font-semibold">API Keys</h4></div>
                   <div className="flex gap-2 mb-3">
-                    <Input type="password" value={newApiKeyText} onChange={e => setNewApiKeyText(e.target.value)} placeholder="sk-..." className="h-9" />
+                    <div className="relative flex-1">
+                      <Input type={showTestApiKey ? 'text' : 'password'} value={newApiKeyText} onChange={e => setNewApiKeyText(e.target.value)} placeholder="sk-..." className="pr-10 h-9" />
+                      <button type="button" onClick={() => setShowTestApiKey(!showTestApiKey)} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground">
+                        {showTestApiKey ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
+                      </button>
+                    </div>
                     <Button size="sm" onClick={addApiKey}><Plus className="h-3.5 w-3.5 mr-1" /> Add</Button>
-                    <Button variant="outline" size="sm" onClick={testConnection} disabled={testing}>
+                    <Button variant="outline" size="sm" onClick={() => testConnection()} disabled={testing}>
                       {testing ? <Loader2 className="h-3.5 w-3.5 animate-spin" /> : <Play className="h-3.5 w-3.5" />}
                       <span className="ml-1 hidden sm:inline">Test</span>
                     </Button>

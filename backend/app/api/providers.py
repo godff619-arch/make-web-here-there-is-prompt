@@ -255,6 +255,50 @@ def list_api_keys(provider_id: str, db: Session = Depends(get_db), current_user:
     return [{"id": k.id, "key_name": k.key_name, "is_active": k.is_active, "last_used_at": str(k.last_used_at) if k.last_used_at else None, "health_status": k.health_status} for k in keys]
 
 
+@router.post("/test-connection")
+async def test_connection_standalone(data: dict, db: Session = Depends(get_db), current_user: User = Depends(get_current_admin)):
+    base_url_val = data.get("base_url", "")
+    api_key_val = data.get("encrypted_key", "")
+
+    if not base_url_val or not api_key_val:
+        raise HTTPException(status_code=400, detail="Base URL and API Key are required")
+
+    import time
+    start = time.time()
+    try:
+        async with httpx.AsyncClient(timeout=15) as client:
+            resp = await client.get(
+                f"{base_url_val.rstrip('/')}/models",
+                headers={"Authorization": f"Bearer {api_key_val}"}
+            )
+            latency_ms = round((time.time() - start) * 1000, 1)
+            model_names = []
+            if resp.status_code == 200:
+                data_resp = resp.json()
+                models_data = data_resp.get("data", data_resp.get("models", []))
+                for md in models_data:
+                    nm = md.get("id", md.get("name", ""))
+                    if nm:
+                        model_names.append(nm)
+            return {
+                "success": resp.status_code == 200,
+                "status_code": resp.status_code,
+                "latency_ms": latency_ms,
+                "models_found": model_names,
+                "model_count": len(model_names),
+            }
+    except Exception as e:
+        latency_ms = round((time.time() - start) * 1000, 1)
+        return {
+            "success": False,
+            "status_code": 0,
+            "latency_ms": latency_ms,
+            "error": str(e),
+            "models_found": [],
+            "model_count": 0,
+        }
+
+
 @router.post("/{provider_id}/test-connection")
 async def test_connection(provider_id: str, data: dict, db: Session = Depends(get_db), current_user: User = Depends(get_current_admin)):
     base_url_val = data.get("base_url", "")
